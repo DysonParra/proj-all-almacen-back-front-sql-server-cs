@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Project.Models.Consecutivos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrResolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntValorInicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntValorFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIncremento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntValorActual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCaracterLlenado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaInicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrSufijo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPrefijo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitHabilitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdTipoDocumento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrResolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntValorInicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntValorFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIncremento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntValorActual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCaracterLlenado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaInicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrSufijo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPrefijo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitHabilitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdTipoDocumento)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdConsecutivo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdConsecutivo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdConsecutivo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+﻿@model Project.Models.MaterialesDescripciones
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>MaterialesDescripciones</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdMaterialDescripcion" />
+            <div class="form-group">
+                <label asp-for="StrCultura" class="control-label"></label>
+                <input asp-for="StrCultura" class="form-control" />
+                <span asp-validation-for="StrCultura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrDescripcionMaterial" class="control-label"></label>
+                <input asp-for="StrDescripcionMaterial" class="form-control" />
+                <span asp-validation-for="StrDescripcionMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdMaterial" class="control-label"></label>
+                <input asp-for="IntIdMaterial" class="form-control" />
+                <span asp-validation-for="IntIdMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCodigoMaterial" class="control-label"></label>
+                <input asp-for="StrCodigoMaterial" class="form-control" />
+                <span asp-validation-for="StrCodigoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

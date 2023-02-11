@@ -1,0 +1,88 @@
+﻿@model Project.Models.RemisionesComprasMateriales
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>RemisionesComprasMateriales</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StrNumeroRemisionCompra" class="control-label"></label>
+                <input asp-for="StrNumeroRemisionCompra" class="form-control" />
+                <span asp-validation-for="StrNumeroRemisionCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCodigoMaterial" class="control-label"></label>
+                <input asp-for="StrCodigoMaterial" class="form-control" />
+                <span asp-validation-for="StrCodigoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaNecesaria" class="control-label"></label>
+                <input asp-for="DtFechaNecesaria" class="form-control" />
+                <span asp-validation-for="DtFechaNecesaria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaSolicitud" class="control-label"></label>
+                <input asp-for="DtFechaSolicitud" class="form-control" />
+                <span asp-validation-for="DtFechaSolicitud" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DblCantidad" class="control-label"></label>
+                <input asp-for="DblCantidad" class="form-control" />
+                <span asp-validation-for="DblCantidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecValorUnitario" class="control-label"></label>
+                <input asp-for="DecValorUnitario" class="form-control" />
+                <span asp-validation-for="DecValorUnitario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FltPorcentajeDescuento" class="control-label"></label>
+                <input asp-for="FltPorcentajeDescuento" class="form-control" />
+                <span asp-validation-for="FltPorcentajeDescuento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecCostoPromedio" class="control-label"></label>
+                <input asp-for="DecCostoPromedio" class="form-control" />
+                <span asp-validation-for="DecCostoPromedio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdMaterial" class="control-label"></label>
+                <input asp-for="IntIdMaterial" class="form-control" />
+                <span asp-validation-for="IntIdMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdRemisionCompra" class="control-label"></label>
+                <input asp-for="IntIdRemisionCompra" class="form-control" />
+                <span asp-validation-for="IntIdRemisionCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

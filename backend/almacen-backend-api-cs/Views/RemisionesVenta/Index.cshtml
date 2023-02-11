@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Project.Models.RemisionesVenta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaContabilizacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaValidez)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaNecesaria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNumeroReferencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecTotalBruto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblPorcentajeDescuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblPorcentajeImpuesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecValorTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrComentarios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdInterlocutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdRemision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdTipoDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntListaPrecio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaContabilizacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaValidez)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaNecesaria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNumeroReferencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecTotalBruto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblPorcentajeDescuento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblPorcentajeImpuesto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecValorTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrComentarios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdInterlocutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdRemision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdTipoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntListaPrecio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StrNumeroDocumento">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StrNumeroDocumento">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StrNumeroDocumento">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

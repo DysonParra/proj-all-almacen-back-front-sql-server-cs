@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Project.Models.Componentes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdAlmacen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecCantidadBase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecCantidadRequerida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecCantidadAdicional)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecCantidadConsumida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaEstimada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaEfectiva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdEstadoComponente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCodigoMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNumeroOrden)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdUnidadMedida)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdAlmacen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecCantidadBase)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecCantidadRequerida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecCantidadAdicional)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecCantidadConsumida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaEstimada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaEfectiva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdEstadoComponente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCodigoMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNumeroOrden)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdUnidadMedida)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdComponente">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdComponente">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdComponente">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

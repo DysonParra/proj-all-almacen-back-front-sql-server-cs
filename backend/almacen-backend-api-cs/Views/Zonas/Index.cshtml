@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Project.Models.Zonas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrDescripcionZona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitTransitoDirecto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitPicking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitUbicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitDespacho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitRecepcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitActivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdBodega)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrDescripcionZona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitTransitoDirecto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitPicking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitUbicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitDespacho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitRecepcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitActivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdBodega)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StrCodigoZona">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StrCodigoZona">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StrCodigoZona">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

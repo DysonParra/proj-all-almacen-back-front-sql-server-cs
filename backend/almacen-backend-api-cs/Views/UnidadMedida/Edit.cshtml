@@ -1,0 +1,79 @@
+﻿@model Project.Models.UnidadMedida
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>UnidadMedida</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdUnidadMedida" />
+            <div class="form-group">
+                <label asp-for="StrNombre" class="control-label"></label>
+                <input asp-for="StrNombre" class="form-control" />
+                <span asp-validation-for="StrNombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrSimbolo" class="control-label"></label>
+                <input asp-for="StrSimbolo" class="form-control" />
+                <span asp-validation-for="StrSimbolo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FltFactor" class="control-label"></label>
+                <input asp-for="FltFactor" class="form-control" />
+                <span asp-validation-for="FltFactor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FltPrecision" class="control-label"></label>
+                <input asp-for="FltPrecision" class="form-control" />
+                <span asp-validation-for="FltPrecision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FltConversion" class="control-label"></label>
+                <input asp-for="FltConversion" class="form-control" />
+                <span asp-validation-for="FltConversion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntDecimales" class="control-label"></label>
+                <input asp-for="IntDecimales" class="form-control" />
+                <span asp-validation-for="IntDecimales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitActivo" class="control-label"></label>
+                <input asp-for="BitActivo" class="form-control" />
+                <span asp-validation-for="BitActivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdTipoUnidadMedida" class="control-label"></label>
+                <input asp-for="IntIdTipoUnidadMedida" class="form-control" />
+                <span asp-validation-for="IntIdTipoUnidadMedida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,79 @@
+﻿@model Project.Models.MmTmcCaracteristica
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>MmTmcCaracteristica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdMmTmcCaracteristica" />
+            <div class="form-group">
+                <label asp-for="IntIdTipoMaterialCaracteristica" class="control-label"></label>
+                <input asp-for="IntIdTipoMaterialCaracteristica" class="form-control" />
+                <span asp-validation-for="IntIdTipoMaterialCaracteristica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrTipoMaterial" class="control-label"></label>
+                <input asp-for="StrTipoMaterial" class="form-control" />
+                <span asp-validation-for="StrTipoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrDescripcionTipoMaterialCaracteristica" class="control-label"></label>
+                <input asp-for="StrDescripcionTipoMaterialCaracteristica" class="form-control" />
+                <span asp-validation-for="StrDescripcionTipoMaterialCaracteristica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntTipoDato" class="control-label"></label>
+                <input asp-for="IntTipoDato" class="form-control" />
+                <span asp-validation-for="IntTipoDato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrReglaValidacion" class="control-label"></label>
+                <input asp-for="StrReglaValidacion" class="form-control" />
+                <span asp-validation-for="StrReglaValidacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitVisibleDetalle" class="control-label"></label>
+                <input asp-for="BitVisibleDetalle" class="form-control" />
+                <span asp-validation-for="BitVisibleDetalle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntOrdenDetall" class="control-label"></label>
+                <input asp-for="IntOrdenDetall" class="form-control" />
+                <span asp-validation-for="IntOrdenDetall" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdTipoMaterial" class="control-label"></label>
+                <input asp-for="IntIdTipoMaterial" class="form-control" />
+                <span asp-validation-for="IntIdTipoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

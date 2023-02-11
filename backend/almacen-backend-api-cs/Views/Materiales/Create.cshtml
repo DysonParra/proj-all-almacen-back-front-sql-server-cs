@@ -1,0 +1,108 @@
+﻿@model Project.Models.Materiales
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Materiales</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StrCodigoMaterial" class="control-label"></label>
+                <input asp-for="StrCodigoMaterial" class="form-control" />
+                <span asp-validation-for="StrCodigoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrReferencia" class="control-label"></label>
+                <input asp-for="StrReferencia" class="form-control" />
+                <span asp-validation-for="StrReferencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitGeneraRecibo" class="control-label"></label>
+                <input asp-for="BitGeneraRecibo" class="form-control" />
+                <span asp-validation-for="BitGeneraRecibo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitVentaApartado" class="control-label"></label>
+                <input asp-for="BitVentaApartado" class="form-control" />
+                <span asp-validation-for="BitVentaApartado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitPermiteDevolucion" class="control-label"></label>
+                <input asp-for="BitPermiteDevolucion" class="form-control" />
+                <span asp-validation-for="BitPermiteDevolucion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrSimbolo" class="control-label"></label>
+                <input asp-for="StrSimbolo" class="form-control" />
+                <span asp-validation-for="StrSimbolo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FltValorUnitario" class="control-label"></label>
+                <input asp-for="FltValorUnitario" class="form-control" />
+                <span asp-validation-for="FltValorUnitario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FltCosto" class="control-label"></label>
+                <input asp-for="FltCosto" class="form-control" />
+                <span asp-validation-for="FltCosto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitConsumible" class="control-label"></label>
+                <input asp-for="BitConsumible" class="form-control" />
+                <span asp-validation-for="BitConsumible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitProducible" class="control-label"></label>
+                <input asp-for="BitProducible" class="form-control" />
+                <span asp-validation-for="BitProducible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitComprable" class="control-label"></label>
+                <input asp-for="BitComprable" class="form-control" />
+                <span asp-validation-for="BitComprable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitVendible" class="control-label"></label>
+                <input asp-for="BitVendible" class="form-control" />
+                <span asp-validation-for="BitVendible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitActivo" class="control-label"></label>
+                <input asp-for="BitActivo" class="form-control" />
+                <span asp-validation-for="BitActivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdTiposMateriales" class="control-label"></label>
+                <input asp-for="IntIdTiposMateriales" class="form-control" />
+                <span asp-validation-for="IntIdTiposMateriales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

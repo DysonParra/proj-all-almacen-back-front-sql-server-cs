@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Project.Models.OrdenProduccion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrReferencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdEstadoProduccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdRutaOrdenTrabajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdCentroTrabajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaEstimada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaInicioEstimada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaFinalizacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecCantidadPlanificada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrOrigenOrden)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdListaMateriales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCodigoMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdUnidadMedida)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrReferencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdEstadoProduccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdRutaOrdenTrabajo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdCentroTrabajo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaEstimada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaInicioEstimada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaFinalizacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecCantidadPlanificada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrOrigenOrden)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdListaMateriales)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCodigoMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdUnidadMedida)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StrNumeroOrden">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StrNumeroOrden">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StrNumeroOrden">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

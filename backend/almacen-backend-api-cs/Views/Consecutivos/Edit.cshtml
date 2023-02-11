@@ -1,0 +1,99 @@
+﻿@model Project.Models.Consecutivos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Consecutivos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdConsecutivo" />
+            <div class="form-group">
+                <label asp-for="StrResolucion" class="control-label"></label>
+                <input asp-for="StrResolucion" class="form-control" />
+                <span asp-validation-for="StrResolucion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntValorInicial" class="control-label"></label>
+                <input asp-for="IntValorInicial" class="form-control" />
+                <span asp-validation-for="IntValorInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntValorFinal" class="control-label"></label>
+                <input asp-for="IntValorFinal" class="form-control" />
+                <span asp-validation-for="IntValorFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIncremento" class="control-label"></label>
+                <input asp-for="IntIncremento" class="form-control" />
+                <span asp-validation-for="IntIncremento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntValorActual" class="control-label"></label>
+                <input asp-for="IntValorActual" class="form-control" />
+                <span asp-validation-for="IntValorActual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCaracterLlenado" class="control-label"></label>
+                <input asp-for="StrCaracterLlenado" class="form-control" />
+                <span asp-validation-for="StrCaracterLlenado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaInicial" class="control-label"></label>
+                <input asp-for="DtFechaInicial" class="form-control" />
+                <span asp-validation-for="DtFechaInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaFinal" class="control-label"></label>
+                <input asp-for="DtFechaFinal" class="form-control" />
+                <span asp-validation-for="DtFechaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrSufijo" class="control-label"></label>
+                <input asp-for="StrSufijo" class="form-control" />
+                <span asp-validation-for="StrSufijo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrPrefijo" class="control-label"></label>
+                <input asp-for="StrPrefijo" class="form-control" />
+                <span asp-validation-for="StrPrefijo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitHabilitado" class="control-label"></label>
+                <input asp-for="BitHabilitado" class="form-control" />
+                <span asp-validation-for="BitHabilitado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdTipoDocumento" class="control-label"></label>
+                <input asp-for="IntIdTipoDocumento" class="form-control" />
+                <span asp-validation-for="IntIdTipoDocumento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

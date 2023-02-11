@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Project.Models.Materiales>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCodigoMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrReferencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitGeneraRecibo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitVentaApartado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitPermiteDevolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrSimbolo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltValorUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltCosto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitConsumible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitProducible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitComprable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitVendible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitActivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdTiposMateriales)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCodigoMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrReferencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitGeneraRecibo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitVentaApartado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitPermiteDevolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrSimbolo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltValorUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltCosto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitConsumible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitProducible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitComprable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitVendible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitActivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdTiposMateriales)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdMaterial">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdMaterial">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdMaterial">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

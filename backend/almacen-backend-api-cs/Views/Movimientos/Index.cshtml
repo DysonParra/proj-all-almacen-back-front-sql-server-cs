@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Project.Models.Movimientos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNumeroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaAnulacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecSobreCosto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecSobreCostoAplicadoProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrObservaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdBodega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdConcepto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdEstadoMovimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdRemision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdTipoDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdTipoMovimiento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNumeroDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaAnulacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecSobreCosto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecSobreCostoAplicadoProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrObservaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdBodega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdConcepto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdEstadoMovimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdRemision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdTipoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdTipoMovimiento)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdMovimiento">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdMovimiento">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdMovimiento">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

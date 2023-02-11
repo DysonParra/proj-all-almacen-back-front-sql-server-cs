@@ -1,0 +1,48 @@
+﻿@model Project.Models.TiposMateriales
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TiposMateriales</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StrTipoMaterial" class="control-label"></label>
+                <input asp-for="StrTipoMaterial" class="form-control" />
+                <span asp-validation-for="StrTipoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrDescripcionTipoMaterial" class="control-label"></label>
+                <input asp-for="StrDescripcionTipoMaterial" class="form-control" />
+                <span asp-validation-for="StrDescripcionTipoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

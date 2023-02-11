@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Project.Models.InterlocutoresCondicionPago>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombreCondicion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltInteresMora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltDescuentoTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecCupoCredito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNumeroCuenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrSucursal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrClaveControl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitEntregaParcial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdCondicionPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdInterlocutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdListaPrecio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombreCondicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltInteresMora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltDescuentoTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecCupoCredito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNumeroCuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrSucursal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrClaveControl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitEntregaParcial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdCondicionPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdInterlocutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdListaPrecio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdInterlocutorCondicionPago">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdInterlocutorCondicionPago">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdInterlocutorCondicionPago">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

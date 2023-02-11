@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Project.Models.UnidadMedida>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrSimbolo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltFactor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltPrecision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltConversion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntDecimales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitActivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdTipoUnidadMedida)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrSimbolo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltFactor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltPrecision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltConversion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntDecimales)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitActivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdTipoUnidadMedida)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdUnidadMedida">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdUnidadMedida">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdUnidadMedida">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@model Project.Models.TiposDocumentosConceptos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TiposDocumentosConceptos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdTipoDocumentoConcepto" />
+            <div class="form-group">
+                <label asp-for="BitActivo" class="control-label"></label>
+                <input asp-for="BitActivo" class="form-control" />
+                <span asp-validation-for="BitActivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdConcepto" class="control-label"></label>
+                <input asp-for="IntIdConcepto" class="form-control" />
+                <span asp-validation-for="IntIdConcepto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdTipoDocumento" class="control-label"></label>
+                <input asp-for="IntIdTipoDocumento" class="form-control" />
+                <span asp-validation-for="IntIdTipoDocumento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

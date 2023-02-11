@@ -1,0 +1,54 @@
+﻿@model Project.Models.TiposAgentes
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TiposAgentes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdTipoAgente" />
+            <div class="form-group">
+                <label asp-for="StrDescripcionTipoAgente" class="control-label"></label>
+                <input asp-for="StrDescripcionTipoAgente" class="form-control" />
+                <span asp-validation-for="StrDescripcionTipoAgente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrTablaInformacion" class="control-label"></label>
+                <input asp-for="StrTablaInformacion" class="form-control" />
+                <span asp-validation-for="StrTablaInformacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitActivo" class="control-label"></label>
+                <input asp-for="BitActivo" class="form-control" />
+                <span asp-validation-for="BitActivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

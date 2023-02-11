@@ -1,0 +1,39 @@
+﻿@model Project.Models.ListasPreciosMateriales
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ListasPreciosMateriales</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntId" />
+            <div class="form-group">
+                <label asp-for="IntIdMateriales" class="control-label"></label>
+                <input asp-for="IntIdMateriales" class="form-control" />
+                <span asp-validation-for="IntIdMateriales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdListasPrecios" class="control-label"></label>
+                <input asp-for="IntIdListasPrecios" class="form-control" />
+                <span asp-validation-for="IntIdListasPrecios" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

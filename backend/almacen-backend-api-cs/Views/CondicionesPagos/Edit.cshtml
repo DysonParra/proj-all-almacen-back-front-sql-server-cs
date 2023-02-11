@@ -1,0 +1,94 @@
+﻿@model Project.Models.CondicionesPagos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CondicionesPagos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdCondicionPago" />
+            <div class="form-group">
+                <label asp-for="StrNombreCondicion" class="control-label"></label>
+                <input asp-for="StrNombreCondicion" class="form-control" />
+                <span asp-validation-for="StrNombreCondicion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrDescripcion" class="control-label"></label>
+                <input asp-for="StrDescripcion" class="form-control" />
+                <span asp-validation-for="StrDescripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitDeudor" class="control-label"></label>
+                <input asp-for="BitDeudor" class="form-control" />
+                <span asp-validation-for="BitDeudor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitAcreedor" class="control-label"></label>
+                <input asp-for="BitAcreedor" class="form-control" />
+                <span asp-validation-for="BitAcreedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntDiiaFijo" class="control-label"></label>
+                <input asp-for="IntDiiaFijo" class="form-control" />
+                <span asp-validation-for="IntDiiaFijo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntMesesAdicionales" class="control-label"></label>
+                <input asp-for="IntMesesAdicionales" class="form-control" />
+                <span asp-validation-for="IntMesesAdicionales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntDiasTolerancia" class="control-label"></label>
+                <input asp-for="IntDiasTolerancia" class="form-control" />
+                <span asp-validation-for="IntDiasTolerancia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntNumeroPlazos" class="control-label"></label>
+                <input asp-for="IntNumeroPlazos" class="form-control" />
+                <span asp-validation-for="IntNumeroPlazos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FltDescuentoTotal" class="control-label"></label>
+                <input asp-for="FltDescuentoTotal" class="form-control" />
+                <span asp-validation-for="FltDescuentoTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FltInteresCredito" class="control-label"></label>
+                <input asp-for="FltInteresCredito" class="form-control" />
+                <span asp-validation-for="FltInteresCredito" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecHaberMaximo" class="control-label"></label>
+                <input asp-for="DecHaberMaximo" class="form-control" />
+                <span asp-validation-for="DecHaberMaximo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

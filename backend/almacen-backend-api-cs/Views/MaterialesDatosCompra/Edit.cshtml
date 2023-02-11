@@ -1,0 +1,99 @@
+﻿@model Project.Models.MaterialesDatosCompra
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>MaterialesDatosCompra</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntIdMaterialDatoCompra" />
+            <div class="form-group">
+                <label asp-for="StrCodigoMaterialCompra" class="control-label"></label>
+                <input asp-for="StrCodigoMaterialCompra" class="form-control" />
+                <span asp-validation-for="StrCodigoMaterialCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitAutomaticPurchase" class="control-label"></label>
+                <input asp-for="BitAutomaticPurchase" class="form-control" />
+                <span asp-validation-for="BitAutomaticPurchase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitGestionLotes" class="control-label"></label>
+                <input asp-for="BitGestionLotes" class="form-control" />
+                <span asp-validation-for="BitGestionLotes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecToleranciaEntregaInferior" class="control-label"></label>
+                <input asp-for="DecToleranciaEntregaInferior" class="form-control" />
+                <span asp-validation-for="DecToleranciaEntregaInferior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecToleranciaEntregaSuperior" class="control-label"></label>
+                <input asp-for="DecToleranciaEntregaSuperior" class="form-control" />
+                <span asp-validation-for="DecToleranciaEntregaSuperior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntDiasEntrega" class="control-label"></label>
+                <input asp-for="IntDiasEntrega" class="form-control" />
+                <span asp-validation-for="IntDiasEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitRequiereInspeccion" class="control-label"></label>
+                <input asp-for="BitRequiereInspeccion" class="form-control" />
+                <span asp-validation-for="BitRequiereInspeccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdMaterial" class="control-label"></label>
+                <input asp-for="IntIdMaterial" class="form-control" />
+                <span asp-validation-for="IntIdMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdInterlocutor" class="control-label"></label>
+                <input asp-for="IntIdInterlocutor" class="form-control" />
+                <span asp-validation-for="IntIdInterlocutor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCodigoMaterial" class="control-label"></label>
+                <input asp-for="StrCodigoMaterial" class="form-control" />
+                <span asp-validation-for="StrCodigoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdUnidadMedidaBase" class="control-label"></label>
+                <input asp-for="IntIdUnidadMedidaBase" class="form-control" />
+                <span asp-validation-for="IntIdUnidadMedidaBase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdUnidadMedidaCompra" class="control-label"></label>
+                <input asp-for="IntIdUnidadMedidaCompra" class="form-control" />
+                <span asp-validation-for="IntIdUnidadMedidaCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

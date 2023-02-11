@@ -1,0 +1,73 @@
+﻿@model Project.Models.PlanCompra
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PlanCompra</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IntCodigoMaterial" class="control-label"></label>
+                <input asp-for="IntCodigoMaterial" class="form-control" />
+                <span asp-validation-for="IntCodigoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrDescripcion" class="control-label"></label>
+                <input asp-for="StrDescripcion" class="form-control" />
+                <span asp-validation-for="StrDescripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DblCantidad" class="control-label"></label>
+                <input asp-for="DblCantidad" class="form-control" />
+                <span asp-validation-for="DblCantidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdGrupoProveedor" class="control-label"></label>
+                <input asp-for="IntIdGrupoProveedor" class="form-control" />
+                <span asp-validation-for="IntIdGrupoProveedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaExplosion" class="control-label"></label>
+                <input asp-for="DtFechaExplosion" class="form-control" />
+                <span asp-validation-for="DtFechaExplosion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaCreacion" class="control-label"></label>
+                <input asp-for="DtFechaCreacion" class="form-control" />
+                <span asp-validation-for="DtFechaCreacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaModificacion" class="control-label"></label>
+                <input asp-for="DtFechaModificacion" class="form-control" />
+                <span asp-validation-for="DtFechaModificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrEstado" class="control-label"></label>
+                <input asp-for="StrEstado" class="form-control" />
+                <span asp-validation-for="StrEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

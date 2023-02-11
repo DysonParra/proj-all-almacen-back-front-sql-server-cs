@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Project.Models.InterlocutoresComerciales>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCodigoInterlocutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNumeroIdentificacionFinanciera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombreInterlocutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTelefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCelular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrFax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdGrupoInterlocutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdTipoInterlocutor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCodigoInterlocutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNumeroIdentificacionFinanciera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombreInterlocutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTelefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCelular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrFax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdGrupoInterlocutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdTipoInterlocutor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdInterlocutorComercial">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdInterlocutorComercial">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdInterlocutorComercial">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

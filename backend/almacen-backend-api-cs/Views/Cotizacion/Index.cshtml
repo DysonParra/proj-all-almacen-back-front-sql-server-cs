@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Project.Models.Cotizacion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IntCabecera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdProveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrEstado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntCodigoMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrDescripcionMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombreProveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrBuzonProveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblCantidadRequerida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblCantidadCotizada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblValorCotizado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblDescuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaNecesaria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaEntrega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdPlanCompra)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntCabecera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntCodigoMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrDescripcionMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombreProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrBuzonProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblCantidadRequerida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblCantidadCotizada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblValorCotizado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblDescuento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaNecesaria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaEntrega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdPlanCompra)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdCotizacion">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdCotizacion">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdCotizacion">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

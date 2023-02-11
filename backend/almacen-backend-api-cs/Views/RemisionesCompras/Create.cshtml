@@ -1,0 +1,108 @@
+﻿@model Project.Models.RemisionesCompras
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>RemisionesCompras</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StrNumeroRemisionCompra" class="control-label"></label>
+                <input asp-for="StrNumeroRemisionCompra" class="form-control" />
+                <span asp-validation-for="StrNumeroRemisionCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaContabilizacion" class="control-label"></label>
+                <input asp-for="DtFechaContabilizacion" class="form-control" />
+                <span asp-validation-for="DtFechaContabilizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaValidez" class="control-label"></label>
+                <input asp-for="DtFechaValidez" class="form-control" />
+                <span asp-validation-for="DtFechaValidez" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaDocumento" class="control-label"></label>
+                <input asp-for="DtFechaDocumento" class="form-control" />
+                <span asp-validation-for="DtFechaDocumento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaNecesaria" class="control-label"></label>
+                <input asp-for="DtFechaNecesaria" class="form-control" />
+                <span asp-validation-for="DtFechaNecesaria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrNumeroReferencia" class="control-label"></label>
+                <input asp-for="StrNumeroReferencia" class="form-control" />
+                <span asp-validation-for="StrNumeroReferencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecTotalBruto" class="control-label"></label>
+                <input asp-for="DecTotalBruto" class="form-control" />
+                <span asp-validation-for="DecTotalBruto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DblPorcentajeDescuento" class="control-label"></label>
+                <input asp-for="DblPorcentajeDescuento" class="form-control" />
+                <span asp-validation-for="DblPorcentajeDescuento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DblPorcentajeImpuesto" class="control-label"></label>
+                <input asp-for="DblPorcentajeImpuesto" class="form-control" />
+                <span asp-validation-for="DblPorcentajeImpuesto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecValorTotal" class="control-label"></label>
+                <input asp-for="DecValorTotal" class="form-control" />
+                <span asp-validation-for="DecValorTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrComentarios" class="control-label"></label>
+                <input asp-for="StrComentarios" class="form-control" />
+                <span asp-validation-for="StrComentarios" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdInterlocutor" class="control-label"></label>
+                <input asp-for="IntIdInterlocutor" class="form-control" />
+                <span asp-validation-for="IntIdInterlocutor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdRemision" class="control-label"></label>
+                <input asp-for="IntIdRemision" class="form-control" />
+                <span asp-validation-for="IntIdRemision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdTipoDocumento" class="control-label"></label>
+                <input asp-for="IntIdTipoDocumento" class="form-control" />
+                <span asp-validation-for="IntIdTipoDocumento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

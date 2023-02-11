@@ -1,0 +1,103 @@
+﻿@model Project.Models.Componentes
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Componentes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IntIdAlmacen" class="control-label"></label>
+                <input asp-for="IntIdAlmacen" class="form-control" />
+                <span asp-validation-for="IntIdAlmacen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecCantidadBase" class="control-label"></label>
+                <input asp-for="DecCantidadBase" class="form-control" />
+                <span asp-validation-for="DecCantidadBase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecCantidadRequerida" class="control-label"></label>
+                <input asp-for="DecCantidadRequerida" class="form-control" />
+                <span asp-validation-for="DecCantidadRequerida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecCantidadAdicional" class="control-label"></label>
+                <input asp-for="DecCantidadAdicional" class="form-control" />
+                <span asp-validation-for="DecCantidadAdicional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecCantidadConsumida" class="control-label"></label>
+                <input asp-for="DecCantidadConsumida" class="form-control" />
+                <span asp-validation-for="DecCantidadConsumida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaEstimada" class="control-label"></label>
+                <input asp-for="DtFechaEstimada" class="form-control" />
+                <span asp-validation-for="DtFechaEstimada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaEfectiva" class="control-label"></label>
+                <input asp-for="DtFechaEfectiva" class="form-control" />
+                <span asp-validation-for="DtFechaEfectiva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaInicio" class="control-label"></label>
+                <input asp-for="DtFechaInicio" class="form-control" />
+                <span asp-validation-for="DtFechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaFinal" class="control-label"></label>
+                <input asp-for="DtFechaFinal" class="form-control" />
+                <span asp-validation-for="DtFechaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdEstadoComponente" class="control-label"></label>
+                <input asp-for="IntIdEstadoComponente" class="form-control" />
+                <span asp-validation-for="IntIdEstadoComponente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFecha" class="control-label"></label>
+                <input asp-for="DtFecha" class="form-control" />
+                <span asp-validation-for="DtFecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCodigoMaterial" class="control-label"></label>
+                <input asp-for="StrCodigoMaterial" class="form-control" />
+                <span asp-validation-for="StrCodigoMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrNumeroOrden" class="control-label"></label>
+                <input asp-for="StrNumeroOrden" class="form-control" />
+                <span asp-validation-for="StrNumeroOrden" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntIdUnidadMedida" class="control-label"></label>
+                <input asp-for="IntIdUnidadMedida" class="form-control" />
+                <span asp-validation-for="IntIdUnidadMedida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Project.Models.RemisionesVentaMateriales>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCodigoMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaNecesaria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaSolicitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblCantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecValorUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltPorcentajeDescuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecCostoPromedio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdRemisionCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecCantidadUnidadMedida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNumeroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdUnidadMedida)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCodigoMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaNecesaria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaSolicitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblCantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecValorUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltPorcentajeDescuento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecCostoPromedio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdRemisionCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecCantidadUnidadMedida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNumeroDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdUnidadMedida)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdRemisionVentaMaterial">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdRemisionVentaMaterial">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdRemisionVentaMaterial">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

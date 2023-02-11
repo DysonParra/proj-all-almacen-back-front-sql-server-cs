@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Project.Models.TiposAgentes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrDescripcionTipoAgente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTablaInformacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitActivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrDescripcionTipoAgente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTablaInformacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitActivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdTipoAgente">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdTipoAgente">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdTipoAgente">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
