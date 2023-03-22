@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {TipoInterlocutorComercial} se encarga de realizar tareas específicas.
+ * @fileoverview    {TipoInterlocutorComercial}
  *
  * @version         2.0
  *

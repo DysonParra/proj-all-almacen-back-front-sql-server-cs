@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {Componentes} se encarga de realizar tareas específicas.
+ * @fileoverview    {Componentes}
  *
  * @version         2.0
  *

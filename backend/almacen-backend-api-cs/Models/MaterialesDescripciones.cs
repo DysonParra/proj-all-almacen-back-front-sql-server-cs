@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {MaterialesDescripciones} se encarga de realizar tareas específicas.
+ * @fileoverview    {MaterialesDescripciones}
  *
  * @version         2.0
  *

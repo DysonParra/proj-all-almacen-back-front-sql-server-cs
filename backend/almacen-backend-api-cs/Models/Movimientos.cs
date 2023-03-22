@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {Movimientos} se encarga de realizar tareas específicas.
+ * @fileoverview    {Movimientos}
  *
  * @version         2.0
  *

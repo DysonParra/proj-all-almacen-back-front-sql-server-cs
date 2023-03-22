@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ListasPrecios} se encarga de realizar tareas específicas.
+ * @fileoverview    {ListasPrecios}
  *
  * @version         2.0
  *

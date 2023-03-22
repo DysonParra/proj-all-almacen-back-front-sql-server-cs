@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {Conceptos} se encarga de realizar tareas específicas.
+ * @fileoverview    {Conceptos}
  *
  * @version         2.0
  *

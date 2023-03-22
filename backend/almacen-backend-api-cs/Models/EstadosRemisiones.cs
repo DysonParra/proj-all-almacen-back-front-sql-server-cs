@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {EstadosRemisiones} se encarga de realizar tareas específicas.
+ * @fileoverview    {EstadosRemisiones}
  *
  * @version         2.0
  *

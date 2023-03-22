@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {TiposAgentes} se encarga de realizar tareas específicas.
+ * @fileoverview    {TiposAgentes}
  *
  * @version         2.0
  *
