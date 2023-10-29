@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code MaterialesCostosPromedios}.
+ * TODO: Description of {@code MaterialesCostosPromedios}.
  *
  * @author Dyson Parra
  */

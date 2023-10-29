@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code TiposDocumentosConceptos}.
+ * TODO: Description of {@code TiposDocumentosConceptos}.
  *
  * @author Dyson Parra
  */

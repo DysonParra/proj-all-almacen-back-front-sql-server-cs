@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code InterlocutoresCondicionPago}.
+ * TODO: Description of {@code InterlocutoresCondicionPago}.
  *
  * @author Dyson Parra
  */

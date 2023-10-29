@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code CentrosTrabajos}.
+ * TODO: Description of {@code CentrosTrabajos}.
  *
  * @author Dyson Parra
  */

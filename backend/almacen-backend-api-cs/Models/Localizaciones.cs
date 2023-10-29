@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Localizaciones}.
+ * TODO: Description of {@code Localizaciones}.
  *
  * @author Dyson Parra
  */

@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code ListasPrecios}.
+ * TODO: Description of {@code ListasPrecios}.
  *
  * @author Dyson Parra
  */

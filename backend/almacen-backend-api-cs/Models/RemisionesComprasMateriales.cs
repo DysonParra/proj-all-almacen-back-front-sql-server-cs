@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code RemisionesComprasMateriales}.
+ * TODO: Description of {@code RemisionesComprasMateriales}.
  *
  * @author Dyson Parra
  */

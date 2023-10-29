@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Agentes}.
+ * TODO: Description of {@code Agentes}.
  *
  * @author Dyson Parra
  */

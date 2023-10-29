@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code MovimientosDetalles}.
+ * TODO: Description of {@code MovimientosDetalles}.
  *
  * @author Dyson Parra
  */

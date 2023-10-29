@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code ListaDeMateriales}.
+ * TODO: Description of {@code ListaDeMateriales}.
  *
  * @author Dyson Parra
  */

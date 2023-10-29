@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Saldos}.
+ * TODO: Description of {@code Saldos}.
  *
  * @author Dyson Parra
  */

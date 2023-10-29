@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code EstadosSaldos}.
+ * TODO: Description of {@code EstadosSaldos}.
  *
  * @author Dyson Parra
  */

@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code MmCodigoEquivalente}.
+ * TODO: Description of {@code MmCodigoEquivalente}.
  *
  * @author Dyson Parra
  */

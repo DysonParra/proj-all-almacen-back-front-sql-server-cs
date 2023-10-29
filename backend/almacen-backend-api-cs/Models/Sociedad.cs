@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Sociedad}.
+ * TODO: Description of {@code Sociedad}.
  *
  * @author Dyson Parra
  */

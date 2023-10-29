@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Cotizacion}.
+ * TODO: Description of {@code Cotizacion}.
  *
  * @author Dyson Parra
  */

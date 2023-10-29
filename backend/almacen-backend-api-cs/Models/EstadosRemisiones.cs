@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code EstadosRemisiones}.
+ * TODO: Description of {@code EstadosRemisiones}.
  *
  * @author Dyson Parra
  */

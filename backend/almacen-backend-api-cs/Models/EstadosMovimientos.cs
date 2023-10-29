@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code EstadosMovimientos}.
+ * TODO: Description of {@code EstadosMovimientos}.
  *
  * @author Dyson Parra
  */

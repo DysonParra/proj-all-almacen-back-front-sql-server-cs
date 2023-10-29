@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code OrdenProduccion}.
+ * TODO: Description of {@code OrdenProduccion}.
  *
  * @author Dyson Parra
  */

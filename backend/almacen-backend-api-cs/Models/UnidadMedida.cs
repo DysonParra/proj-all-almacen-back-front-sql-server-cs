@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code UnidadMedida}.
+ * TODO: Description of {@code UnidadMedida}.
  *
  * @author Dyson Parra
  */
