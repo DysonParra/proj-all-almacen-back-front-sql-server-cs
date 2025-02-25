@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class ComponentesController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code ComponentesController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class ComponentesController : Controller {
         private readonly AlmacenContext _context;
 
-        public ComponentesController(AlmacenContext context)
-        {
+        public ComponentesController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: Componentes
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Componentes.ToListAsync());
         }
 
         // GET: Componentes/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.Componentes == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.Componentes == null) {
                 return NotFound();
             }
 
             var componentes = await _context.Componentes
                 .FirstOrDefaultAsync(m => m.IntIdComponente == id);
-            if (componentes == null)
-            {
+            if (componentes == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: Componentes/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdComponente,IntIdAlmacen,DecCantidadBase,DecCantidadRequerida,DecCantidadAdicional,DecCantidadConsumida,DtFechaEstimada,DtFechaEfectiva,DtFechaInicio,DtFechaFinal,IntIdEstadoComponente,StrUsuario,DtFecha,StrCodigoMaterial,StrNumeroOrden,IntIdUnidadMedida")] Componentes componentes)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdComponente,IntIdAlmacen,DecCantidadBase,DecCantidadRequerida,DecCantidadAdicional,DecCantidadConsumida,DtFechaEstimada,DtFechaEfectiva,DtFechaInicio,DtFechaFinal,IntIdEstadoComponente,StrUsuario,DtFecha,StrCodigoMaterial,StrNumeroOrden,IntIdUnidadMedida")] Componentes componentes) {
+            if (ModelState.IsValid) {
                 _context.Add(componentes);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: Componentes/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.Componentes == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.Componentes == null) {
                 return NotFound();
             }
 
             var componentes = await _context.Componentes.FindAsync(id);
-            if (componentes == null)
-            {
+            if (componentes == null) {
                 return NotFound();
             }
             return View(componentes);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdComponente,IntIdAlmacen,DecCantidadBase,DecCantidadRequerida,DecCantidadAdicional,DecCantidadConsumida,DtFechaEstimada,DtFechaEfectiva,DtFechaInicio,DtFechaFinal,IntIdEstadoComponente,StrUsuario,DtFecha,StrCodigoMaterial,StrNumeroOrden,IntIdUnidadMedida")] Componentes componentes)
-        {
-            if (id != componentes.IntIdComponente)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdComponente,IntIdAlmacen,DecCantidadBase,DecCantidadRequerida,DecCantidadAdicional,DecCantidadConsumida,DtFechaEstimada,DtFechaEfectiva,DtFechaInicio,DtFechaFinal,IntIdEstadoComponente,StrUsuario,DtFecha,StrCodigoMaterial,StrNumeroOrden,IntIdUnidadMedida")] Componentes componentes) {
+            if (id != componentes.IntIdComponente) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(componentes);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ComponentesExists(componentes.IntIdComponente))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!ComponentesExists(componentes.IntIdComponente)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: Componentes/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.Componentes == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.Componentes == null) {
                 return NotFound();
             }
 
             var componentes = await _context.Componentes
                 .FirstOrDefaultAsync(m => m.IntIdComponente == id);
-            if (componentes == null)
-            {
+            if (componentes == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: Componentes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.Componentes == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.Componentes == null) {
                 return Problem("Entity set 'AlmacenContext.Componentes'  is null.");
             }
             var componentes = await _context.Componentes.FindAsync(id);
-            if (componentes != null)
-            {
+            if (componentes != null) {
                 _context.Componentes.Remove(componentes);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ComponentesExists(long? id)
-        {
+        private bool ComponentesExists(long? id) {
             return _context.Componentes.Any(e => e.IntIdComponente == id);
         }
     }

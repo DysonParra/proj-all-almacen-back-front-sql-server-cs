@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class TiposDocumentosConceptosController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code TiposDocumentosConceptosController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class TiposDocumentosConceptosController : Controller {
         private readonly AlmacenContext _context;
 
-        public TiposDocumentosConceptosController(AlmacenContext context)
-        {
+        public TiposDocumentosConceptosController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: TiposDocumentosConceptos
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.TiposDocumentosConceptos.ToListAsync());
         }
 
         // GET: TiposDocumentosConceptos/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.TiposDocumentosConceptos == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.TiposDocumentosConceptos == null) {
                 return NotFound();
             }
 
             var tiposDocumentosConceptos = await _context.TiposDocumentosConceptos
                 .FirstOrDefaultAsync(m => m.IntIdTipoDocumentoConcepto == id);
-            if (tiposDocumentosConceptos == null)
-            {
+            if (tiposDocumentosConceptos == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: TiposDocumentosConceptos/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdTipoDocumentoConcepto,BitActivo,StrUsuario,DtFecha,IntIdConcepto,IntIdTipoDocumento")] TiposDocumentosConceptos tiposDocumentosConceptos)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdTipoDocumentoConcepto,BitActivo,StrUsuario,DtFecha,IntIdConcepto,IntIdTipoDocumento")] TiposDocumentosConceptos tiposDocumentosConceptos) {
+            if (ModelState.IsValid) {
                 _context.Add(tiposDocumentosConceptos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: TiposDocumentosConceptos/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.TiposDocumentosConceptos == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.TiposDocumentosConceptos == null) {
                 return NotFound();
             }
 
             var tiposDocumentosConceptos = await _context.TiposDocumentosConceptos.FindAsync(id);
-            if (tiposDocumentosConceptos == null)
-            {
+            if (tiposDocumentosConceptos == null) {
                 return NotFound();
             }
             return View(tiposDocumentosConceptos);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoDocumentoConcepto,BitActivo,StrUsuario,DtFecha,IntIdConcepto,IntIdTipoDocumento")] TiposDocumentosConceptos tiposDocumentosConceptos)
-        {
-            if (id != tiposDocumentosConceptos.IntIdTipoDocumentoConcepto)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoDocumentoConcepto,BitActivo,StrUsuario,DtFecha,IntIdConcepto,IntIdTipoDocumento")] TiposDocumentosConceptos tiposDocumentosConceptos) {
+            if (id != tiposDocumentosConceptos.IntIdTipoDocumentoConcepto) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(tiposDocumentosConceptos);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TiposDocumentosConceptosExists(tiposDocumentosConceptos.IntIdTipoDocumentoConcepto))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!TiposDocumentosConceptosExists(tiposDocumentosConceptos.IntIdTipoDocumentoConcepto)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: TiposDocumentosConceptos/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.TiposDocumentosConceptos == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.TiposDocumentosConceptos == null) {
                 return NotFound();
             }
 
             var tiposDocumentosConceptos = await _context.TiposDocumentosConceptos
                 .FirstOrDefaultAsync(m => m.IntIdTipoDocumentoConcepto == id);
-            if (tiposDocumentosConceptos == null)
-            {
+            if (tiposDocumentosConceptos == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: TiposDocumentosConceptos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.TiposDocumentosConceptos == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.TiposDocumentosConceptos == null) {
                 return Problem("Entity set 'AlmacenContext.TiposDocumentosConceptos'  is null.");
             }
             var tiposDocumentosConceptos = await _context.TiposDocumentosConceptos.FindAsync(id);
-            if (tiposDocumentosConceptos != null)
-            {
+            if (tiposDocumentosConceptos != null) {
                 _context.TiposDocumentosConceptos.Remove(tiposDocumentosConceptos);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TiposDocumentosConceptosExists(long? id)
-        {
+        private bool TiposDocumentosConceptosExists(long? id) {
             return _context.TiposDocumentosConceptos.Any(e => e.IntIdTipoDocumentoConcepto == id);
         }
     }

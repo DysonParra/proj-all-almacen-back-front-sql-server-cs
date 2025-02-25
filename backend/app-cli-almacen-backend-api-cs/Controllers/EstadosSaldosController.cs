@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class EstadosSaldosController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code EstadosSaldosController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class EstadosSaldosController : Controller {
         private readonly AlmacenContext _context;
 
-        public EstadosSaldosController(AlmacenContext context)
-        {
+        public EstadosSaldosController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: EstadosSaldos
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.EstadosSaldos.ToListAsync());
         }
 
         // GET: EstadosSaldos/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.EstadosSaldos == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.EstadosSaldos == null) {
                 return NotFound();
             }
 
             var estadosSaldos = await _context.EstadosSaldos
                 .FirstOrDefaultAsync(m => m.IntIdEstadoSaldo == id);
-            if (estadosSaldos == null)
-            {
+            if (estadosSaldos == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: EstadosSaldos/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdEstadoSaldo,StrDescripcionEstadoSaldo,StrCodigoColor,BitEstaEnReposicion,StrUsuario,DtFecha")] EstadosSaldos estadosSaldos)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdEstadoSaldo,StrDescripcionEstadoSaldo,StrCodigoColor,BitEstaEnReposicion,StrUsuario,DtFecha")] EstadosSaldos estadosSaldos) {
+            if (ModelState.IsValid) {
                 _context.Add(estadosSaldos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: EstadosSaldos/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.EstadosSaldos == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.EstadosSaldos == null) {
                 return NotFound();
             }
 
             var estadosSaldos = await _context.EstadosSaldos.FindAsync(id);
-            if (estadosSaldos == null)
-            {
+            if (estadosSaldos == null) {
                 return NotFound();
             }
             return View(estadosSaldos);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdEstadoSaldo,StrDescripcionEstadoSaldo,StrCodigoColor,BitEstaEnReposicion,StrUsuario,DtFecha")] EstadosSaldos estadosSaldos)
-        {
-            if (id != estadosSaldos.IntIdEstadoSaldo)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdEstadoSaldo,StrDescripcionEstadoSaldo,StrCodigoColor,BitEstaEnReposicion,StrUsuario,DtFecha")] EstadosSaldos estadosSaldos) {
+            if (id != estadosSaldos.IntIdEstadoSaldo) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(estadosSaldos);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EstadosSaldosExists(estadosSaldos.IntIdEstadoSaldo))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!EstadosSaldosExists(estadosSaldos.IntIdEstadoSaldo)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: EstadosSaldos/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.EstadosSaldos == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.EstadosSaldos == null) {
                 return NotFound();
             }
 
             var estadosSaldos = await _context.EstadosSaldos
                 .FirstOrDefaultAsync(m => m.IntIdEstadoSaldo == id);
-            if (estadosSaldos == null)
-            {
+            if (estadosSaldos == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: EstadosSaldos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.EstadosSaldos == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.EstadosSaldos == null) {
                 return Problem("Entity set 'AlmacenContext.EstadosSaldos'  is null.");
             }
             var estadosSaldos = await _context.EstadosSaldos.FindAsync(id);
-            if (estadosSaldos != null)
-            {
+            if (estadosSaldos != null) {
                 _context.EstadosSaldos.Remove(estadosSaldos);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EstadosSaldosExists(long? id)
-        {
+        private bool EstadosSaldosExists(long? id) {
             return _context.EstadosSaldos.Any(e => e.IntIdEstadoSaldo == id);
         }
     }

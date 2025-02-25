@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class TipoUnidadMedidaController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code TipoUnidadMedidaController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class TipoUnidadMedidaController : Controller {
         private readonly AlmacenContext _context;
 
-        public TipoUnidadMedidaController(AlmacenContext context)
-        {
+        public TipoUnidadMedidaController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: TipoUnidadMedida
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.TipoUnidadMedida.ToListAsync());
         }
 
         // GET: TipoUnidadMedida/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.TipoUnidadMedida == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.TipoUnidadMedida == null) {
                 return NotFound();
             }
 
             var tipoUnidadMedida = await _context.TipoUnidadMedida
                 .FirstOrDefaultAsync(m => m.IntIdTipoUnidadMedida == id);
-            if (tipoUnidadMedida == null)
-            {
+            if (tipoUnidadMedida == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: TipoUnidadMedida/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdTipoUnidadMedida,StrNombre,StrUsuario,DtFecha")] TipoUnidadMedida tipoUnidadMedida)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdTipoUnidadMedida,StrNombre,StrUsuario,DtFecha")] TipoUnidadMedida tipoUnidadMedida) {
+            if (ModelState.IsValid) {
                 _context.Add(tipoUnidadMedida);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: TipoUnidadMedida/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.TipoUnidadMedida == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.TipoUnidadMedida == null) {
                 return NotFound();
             }
 
             var tipoUnidadMedida = await _context.TipoUnidadMedida.FindAsync(id);
-            if (tipoUnidadMedida == null)
-            {
+            if (tipoUnidadMedida == null) {
                 return NotFound();
             }
             return View(tipoUnidadMedida);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoUnidadMedida,StrNombre,StrUsuario,DtFecha")] TipoUnidadMedida tipoUnidadMedida)
-        {
-            if (id != tipoUnidadMedida.IntIdTipoUnidadMedida)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoUnidadMedida,StrNombre,StrUsuario,DtFecha")] TipoUnidadMedida tipoUnidadMedida) {
+            if (id != tipoUnidadMedida.IntIdTipoUnidadMedida) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(tipoUnidadMedida);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TipoUnidadMedidaExists(tipoUnidadMedida.IntIdTipoUnidadMedida))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!TipoUnidadMedidaExists(tipoUnidadMedida.IntIdTipoUnidadMedida)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: TipoUnidadMedida/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.TipoUnidadMedida == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.TipoUnidadMedida == null) {
                 return NotFound();
             }
 
             var tipoUnidadMedida = await _context.TipoUnidadMedida
                 .FirstOrDefaultAsync(m => m.IntIdTipoUnidadMedida == id);
-            if (tipoUnidadMedida == null)
-            {
+            if (tipoUnidadMedida == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: TipoUnidadMedida/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.TipoUnidadMedida == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.TipoUnidadMedida == null) {
                 return Problem("Entity set 'AlmacenContext.TipoUnidadMedida'  is null.");
             }
             var tipoUnidadMedida = await _context.TipoUnidadMedida.FindAsync(id);
-            if (tipoUnidadMedida != null)
-            {
+            if (tipoUnidadMedida != null) {
                 _context.TipoUnidadMedida.Remove(tipoUnidadMedida);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TipoUnidadMedidaExists(long? id)
-        {
+        private bool TipoUnidadMedidaExists(long? id) {
             return _context.TipoUnidadMedida.Any(e => e.IntIdTipoUnidadMedida == id);
         }
     }

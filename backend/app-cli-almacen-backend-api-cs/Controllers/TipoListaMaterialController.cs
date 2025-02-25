@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class TipoListaMaterialController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code TipoListaMaterialController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class TipoListaMaterialController : Controller {
         private readonly AlmacenContext _context;
 
-        public TipoListaMaterialController(AlmacenContext context)
-        {
+        public TipoListaMaterialController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: TipoListaMaterial
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.TipoListaMaterial.ToListAsync());
         }
 
         // GET: TipoListaMaterial/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.TipoListaMaterial == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.TipoListaMaterial == null) {
                 return NotFound();
             }
 
             var tipoListaMaterial = await _context.TipoListaMaterial
                 .FirstOrDefaultAsync(m => m.IntIdTipoListaMaterial == id);
-            if (tipoListaMaterial == null)
-            {
+            if (tipoListaMaterial == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: TipoListaMaterial/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdTipoListaMaterial,StrNombreTipoLista,StrDescripcionLista")] TipoListaMaterial tipoListaMaterial)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdTipoListaMaterial,StrNombreTipoLista,StrDescripcionLista")] TipoListaMaterial tipoListaMaterial) {
+            if (ModelState.IsValid) {
                 _context.Add(tipoListaMaterial);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: TipoListaMaterial/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.TipoListaMaterial == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.TipoListaMaterial == null) {
                 return NotFound();
             }
 
             var tipoListaMaterial = await _context.TipoListaMaterial.FindAsync(id);
-            if (tipoListaMaterial == null)
-            {
+            if (tipoListaMaterial == null) {
                 return NotFound();
             }
             return View(tipoListaMaterial);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoListaMaterial,StrNombreTipoLista,StrDescripcionLista")] TipoListaMaterial tipoListaMaterial)
-        {
-            if (id != tipoListaMaterial.IntIdTipoListaMaterial)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoListaMaterial,StrNombreTipoLista,StrDescripcionLista")] TipoListaMaterial tipoListaMaterial) {
+            if (id != tipoListaMaterial.IntIdTipoListaMaterial) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(tipoListaMaterial);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TipoListaMaterialExists(tipoListaMaterial.IntIdTipoListaMaterial))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!TipoListaMaterialExists(tipoListaMaterial.IntIdTipoListaMaterial)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: TipoListaMaterial/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.TipoListaMaterial == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.TipoListaMaterial == null) {
                 return NotFound();
             }
 
             var tipoListaMaterial = await _context.TipoListaMaterial
                 .FirstOrDefaultAsync(m => m.IntIdTipoListaMaterial == id);
-            if (tipoListaMaterial == null)
-            {
+            if (tipoListaMaterial == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: TipoListaMaterial/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.TipoListaMaterial == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.TipoListaMaterial == null) {
                 return Problem("Entity set 'AlmacenContext.TipoListaMaterial'  is null.");
             }
             var tipoListaMaterial = await _context.TipoListaMaterial.FindAsync(id);
-            if (tipoListaMaterial != null)
-            {
+            if (tipoListaMaterial != null) {
                 _context.TipoListaMaterial.Remove(tipoListaMaterial);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TipoListaMaterialExists(long? id)
-        {
+        private bool TipoListaMaterialExists(long? id) {
             return _context.TipoListaMaterial.Any(e => e.IntIdTipoListaMaterial == id);
         }
     }

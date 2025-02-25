@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class GrupoInterlocutoresController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code GrupoInterlocutoresController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class GrupoInterlocutoresController : Controller {
         private readonly AlmacenContext _context;
 
-        public GrupoInterlocutoresController(AlmacenContext context)
-        {
+        public GrupoInterlocutoresController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: GrupoInterlocutores
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.GrupoInterlocutores.ToListAsync());
         }
 
         // GET: GrupoInterlocutores/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.GrupoInterlocutores == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.GrupoInterlocutores == null) {
                 return NotFound();
             }
 
             var grupoInterlocutores = await _context.GrupoInterlocutores
                 .FirstOrDefaultAsync(m => m.IntIdGrupoInterlocutor == id);
-            if (grupoInterlocutores == null)
-            {
+            if (grupoInterlocutores == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: GrupoInterlocutores/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdGrupoInterlocutor,StrNombreGrupo,StrDescripcion,StrCuentaContable,StrUsuario,DtFecha,IntIdListaPrecio")] GrupoInterlocutores grupoInterlocutores)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdGrupoInterlocutor,StrNombreGrupo,StrDescripcion,StrCuentaContable,StrUsuario,DtFecha,IntIdListaPrecio")] GrupoInterlocutores grupoInterlocutores) {
+            if (ModelState.IsValid) {
                 _context.Add(grupoInterlocutores);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: GrupoInterlocutores/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.GrupoInterlocutores == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.GrupoInterlocutores == null) {
                 return NotFound();
             }
 
             var grupoInterlocutores = await _context.GrupoInterlocutores.FindAsync(id);
-            if (grupoInterlocutores == null)
-            {
+            if (grupoInterlocutores == null) {
                 return NotFound();
             }
             return View(grupoInterlocutores);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdGrupoInterlocutor,StrNombreGrupo,StrDescripcion,StrCuentaContable,StrUsuario,DtFecha,IntIdListaPrecio")] GrupoInterlocutores grupoInterlocutores)
-        {
-            if (id != grupoInterlocutores.IntIdGrupoInterlocutor)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdGrupoInterlocutor,StrNombreGrupo,StrDescripcion,StrCuentaContable,StrUsuario,DtFecha,IntIdListaPrecio")] GrupoInterlocutores grupoInterlocutores) {
+            if (id != grupoInterlocutores.IntIdGrupoInterlocutor) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(grupoInterlocutores);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!GrupoInterlocutoresExists(grupoInterlocutores.IntIdGrupoInterlocutor))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!GrupoInterlocutoresExists(grupoInterlocutores.IntIdGrupoInterlocutor)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: GrupoInterlocutores/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.GrupoInterlocutores == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.GrupoInterlocutores == null) {
                 return NotFound();
             }
 
             var grupoInterlocutores = await _context.GrupoInterlocutores
                 .FirstOrDefaultAsync(m => m.IntIdGrupoInterlocutor == id);
-            if (grupoInterlocutores == null)
-            {
+            if (grupoInterlocutores == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: GrupoInterlocutores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.GrupoInterlocutores == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.GrupoInterlocutores == null) {
                 return Problem("Entity set 'AlmacenContext.GrupoInterlocutores'  is null.");
             }
             var grupoInterlocutores = await _context.GrupoInterlocutores.FindAsync(id);
-            if (grupoInterlocutores != null)
-            {
+            if (grupoInterlocutores != null) {
                 _context.GrupoInterlocutores.Remove(grupoInterlocutores);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GrupoInterlocutoresExists(long? id)
-        {
+        private bool GrupoInterlocutoresExists(long? id) {
             return _context.GrupoInterlocutores.Any(e => e.IntIdGrupoInterlocutor == id);
         }
     }

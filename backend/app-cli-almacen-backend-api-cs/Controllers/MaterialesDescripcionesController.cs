@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class MaterialesDescripcionesController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code MaterialesDescripcionesController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class MaterialesDescripcionesController : Controller {
         private readonly AlmacenContext _context;
 
-        public MaterialesDescripcionesController(AlmacenContext context)
-        {
+        public MaterialesDescripcionesController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: MaterialesDescripciones
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.MaterialesDescripciones.ToListAsync());
         }
 
         // GET: MaterialesDescripciones/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.MaterialesDescripciones == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.MaterialesDescripciones == null) {
                 return NotFound();
             }
 
             var materialesDescripciones = await _context.MaterialesDescripciones
                 .FirstOrDefaultAsync(m => m.IntIdMaterialDescripcion == id);
-            if (materialesDescripciones == null)
-            {
+            if (materialesDescripciones == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: MaterialesDescripciones/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdMaterialDescripcion,StrCultura,StrDescripcionMaterial,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MaterialesDescripciones materialesDescripciones)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdMaterialDescripcion,StrCultura,StrDescripcionMaterial,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MaterialesDescripciones materialesDescripciones) {
+            if (ModelState.IsValid) {
                 _context.Add(materialesDescripciones);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: MaterialesDescripciones/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.MaterialesDescripciones == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.MaterialesDescripciones == null) {
                 return NotFound();
             }
 
             var materialesDescripciones = await _context.MaterialesDescripciones.FindAsync(id);
-            if (materialesDescripciones == null)
-            {
+            if (materialesDescripciones == null) {
                 return NotFound();
             }
             return View(materialesDescripciones);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdMaterialDescripcion,StrCultura,StrDescripcionMaterial,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MaterialesDescripciones materialesDescripciones)
-        {
-            if (id != materialesDescripciones.IntIdMaterialDescripcion)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdMaterialDescripcion,StrCultura,StrDescripcionMaterial,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MaterialesDescripciones materialesDescripciones) {
+            if (id != materialesDescripciones.IntIdMaterialDescripcion) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(materialesDescripciones);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MaterialesDescripcionesExists(materialesDescripciones.IntIdMaterialDescripcion))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!MaterialesDescripcionesExists(materialesDescripciones.IntIdMaterialDescripcion)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: MaterialesDescripciones/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.MaterialesDescripciones == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.MaterialesDescripciones == null) {
                 return NotFound();
             }
 
             var materialesDescripciones = await _context.MaterialesDescripciones
                 .FirstOrDefaultAsync(m => m.IntIdMaterialDescripcion == id);
-            if (materialesDescripciones == null)
-            {
+            if (materialesDescripciones == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: MaterialesDescripciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.MaterialesDescripciones == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.MaterialesDescripciones == null) {
                 return Problem("Entity set 'AlmacenContext.MaterialesDescripciones'  is null.");
             }
             var materialesDescripciones = await _context.MaterialesDescripciones.FindAsync(id);
-            if (materialesDescripciones != null)
-            {
+            if (materialesDescripciones != null) {
                 _context.MaterialesDescripciones.Remove(materialesDescripciones);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MaterialesDescripcionesExists(long? id)
-        {
+        private bool MaterialesDescripcionesExists(long? id) {
             return _context.MaterialesDescripciones.Any(e => e.IntIdMaterialDescripcion == id);
         }
     }

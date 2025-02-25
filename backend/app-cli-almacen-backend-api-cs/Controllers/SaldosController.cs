@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class SaldosController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code SaldosController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class SaldosController : Controller {
         private readonly AlmacenContext _context;
 
-        public SaldosController(AlmacenContext context)
-        {
+        public SaldosController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: Saldos
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Saldos.ToListAsync());
         }
 
         // GET: Saldos/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.Saldos == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.Saldos == null) {
                 return NotFound();
             }
 
             var saldos = await _context.Saldos
                 .FirstOrDefaultAsync(m => m.IntIdSaldo == id);
-            if (saldos == null)
-            {
+            if (saldos == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: Saldos/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdSaldo,DecCantidad,StrUsuario,DtFecha,IntIdEstadoSaldo,StrCodigoProducto,IntIdUbicacion")] Saldos saldos)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdSaldo,DecCantidad,StrUsuario,DtFecha,IntIdEstadoSaldo,StrCodigoProducto,IntIdUbicacion")] Saldos saldos) {
+            if (ModelState.IsValid) {
                 _context.Add(saldos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: Saldos/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.Saldos == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.Saldos == null) {
                 return NotFound();
             }
 
             var saldos = await _context.Saldos.FindAsync(id);
-            if (saldos == null)
-            {
+            if (saldos == null) {
                 return NotFound();
             }
             return View(saldos);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdSaldo,DecCantidad,StrUsuario,DtFecha,IntIdEstadoSaldo,StrCodigoProducto,IntIdUbicacion")] Saldos saldos)
-        {
-            if (id != saldos.IntIdSaldo)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdSaldo,DecCantidad,StrUsuario,DtFecha,IntIdEstadoSaldo,StrCodigoProducto,IntIdUbicacion")] Saldos saldos) {
+            if (id != saldos.IntIdSaldo) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(saldos);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SaldosExists(saldos.IntIdSaldo))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!SaldosExists(saldos.IntIdSaldo)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: Saldos/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.Saldos == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.Saldos == null) {
                 return NotFound();
             }
 
             var saldos = await _context.Saldos
                 .FirstOrDefaultAsync(m => m.IntIdSaldo == id);
-            if (saldos == null)
-            {
+            if (saldos == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: Saldos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.Saldos == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.Saldos == null) {
                 return Problem("Entity set 'AlmacenContext.Saldos'  is null.");
             }
             var saldos = await _context.Saldos.FindAsync(id);
-            if (saldos != null)
-            {
+            if (saldos != null) {
                 _context.Saldos.Remove(saldos);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SaldosExists(long? id)
-        {
+        private bool SaldosExists(long? id) {
             return _context.Saldos.Any(e => e.IntIdSaldo == id);
         }
     }

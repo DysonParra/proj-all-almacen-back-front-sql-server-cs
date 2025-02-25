@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class MaterialesController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code MaterialesController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class MaterialesController : Controller {
         private readonly AlmacenContext _context;
 
-        public MaterialesController(AlmacenContext context)
-        {
+        public MaterialesController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: Materiales
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Materiales.ToListAsync());
         }
 
         // GET: Materiales/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.Materiales == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.Materiales == null) {
                 return NotFound();
             }
 
             var materiales = await _context.Materiales
                 .FirstOrDefaultAsync(m => m.IntIdMaterial == id);
-            if (materiales == null)
-            {
+            if (materiales == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: Materiales/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdMaterial,StrCodigoMaterial,StrReferencia,BitGeneraRecibo,BitVentaApartado,BitPermiteDevolucion,StrSimbolo,FltValorUnitario,FltCosto,BitConsumible,BitProducible,BitComprable,BitVendible,BitActivo,StrUsuario,DtFecha,IntIdTiposMateriales")] Materiales materiales)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdMaterial,StrCodigoMaterial,StrReferencia,BitGeneraRecibo,BitVentaApartado,BitPermiteDevolucion,StrSimbolo,FltValorUnitario,FltCosto,BitConsumible,BitProducible,BitComprable,BitVendible,BitActivo,StrUsuario,DtFecha,IntIdTiposMateriales")] Materiales materiales) {
+            if (ModelState.IsValid) {
                 _context.Add(materiales);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: Materiales/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.Materiales == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.Materiales == null) {
                 return NotFound();
             }
 
             var materiales = await _context.Materiales.FindAsync(id);
-            if (materiales == null)
-            {
+            if (materiales == null) {
                 return NotFound();
             }
             return View(materiales);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdMaterial,StrCodigoMaterial,StrReferencia,BitGeneraRecibo,BitVentaApartado,BitPermiteDevolucion,StrSimbolo,FltValorUnitario,FltCosto,BitConsumible,BitProducible,BitComprable,BitVendible,BitActivo,StrUsuario,DtFecha,IntIdTiposMateriales")] Materiales materiales)
-        {
-            if (id != materiales.IntIdMaterial)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdMaterial,StrCodigoMaterial,StrReferencia,BitGeneraRecibo,BitVentaApartado,BitPermiteDevolucion,StrSimbolo,FltValorUnitario,FltCosto,BitConsumible,BitProducible,BitComprable,BitVendible,BitActivo,StrUsuario,DtFecha,IntIdTiposMateriales")] Materiales materiales) {
+            if (id != materiales.IntIdMaterial) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(materiales);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MaterialesExists(materiales.IntIdMaterial))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!MaterialesExists(materiales.IntIdMaterial)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: Materiales/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.Materiales == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.Materiales == null) {
                 return NotFound();
             }
 
             var materiales = await _context.Materiales
                 .FirstOrDefaultAsync(m => m.IntIdMaterial == id);
-            if (materiales == null)
-            {
+            if (materiales == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: Materiales/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.Materiales == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.Materiales == null) {
                 return Problem("Entity set 'AlmacenContext.Materiales'  is null.");
             }
             var materiales = await _context.Materiales.FindAsync(id);
-            if (materiales != null)
-            {
+            if (materiales != null) {
                 _context.Materiales.Remove(materiales);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MaterialesExists(long? id)
-        {
+        private bool MaterialesExists(long? id) {
             return _context.Materiales.Any(e => e.IntIdMaterial == id);
         }
     }

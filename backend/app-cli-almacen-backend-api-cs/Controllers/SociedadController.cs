@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class SociedadController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code SociedadController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class SociedadController : Controller {
         private readonly AlmacenContext _context;
 
-        public SociedadController(AlmacenContext context)
-        {
+        public SociedadController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: Sociedad
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Sociedad.ToListAsync());
         }
 
         // GET: Sociedad/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.Sociedad == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.Sociedad == null) {
                 return NotFound();
             }
 
             var sociedad = await _context.Sociedad
                 .FirstOrDefaultAsync(m => m.IntIdSociedad == id);
-            if (sociedad == null)
-            {
+            if (sociedad == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: Sociedad/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdSociedad,StrCodigoSociedad,StrNombreSociedad,StrDescripcionSociedad,StrUsuario,DtFecha")] Sociedad sociedad)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdSociedad,StrCodigoSociedad,StrNombreSociedad,StrDescripcionSociedad,StrUsuario,DtFecha")] Sociedad sociedad) {
+            if (ModelState.IsValid) {
                 _context.Add(sociedad);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: Sociedad/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.Sociedad == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.Sociedad == null) {
                 return NotFound();
             }
 
             var sociedad = await _context.Sociedad.FindAsync(id);
-            if (sociedad == null)
-            {
+            if (sociedad == null) {
                 return NotFound();
             }
             return View(sociedad);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdSociedad,StrCodigoSociedad,StrNombreSociedad,StrDescripcionSociedad,StrUsuario,DtFecha")] Sociedad sociedad)
-        {
-            if (id != sociedad.IntIdSociedad)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdSociedad,StrCodigoSociedad,StrNombreSociedad,StrDescripcionSociedad,StrUsuario,DtFecha")] Sociedad sociedad) {
+            if (id != sociedad.IntIdSociedad) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(sociedad);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SociedadExists(sociedad.IntIdSociedad))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!SociedadExists(sociedad.IntIdSociedad)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: Sociedad/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.Sociedad == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.Sociedad == null) {
                 return NotFound();
             }
 
             var sociedad = await _context.Sociedad
                 .FirstOrDefaultAsync(m => m.IntIdSociedad == id);
-            if (sociedad == null)
-            {
+            if (sociedad == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: Sociedad/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.Sociedad == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.Sociedad == null) {
                 return Problem("Entity set 'AlmacenContext.Sociedad'  is null.");
             }
             var sociedad = await _context.Sociedad.FindAsync(id);
-            if (sociedad != null)
-            {
+            if (sociedad != null) {
                 _context.Sociedad.Remove(sociedad);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SociedadExists(long? id)
-        {
+        private bool SociedadExists(long? id) {
             return _context.Sociedad.Any(e => e.IntIdSociedad == id);
         }
     }

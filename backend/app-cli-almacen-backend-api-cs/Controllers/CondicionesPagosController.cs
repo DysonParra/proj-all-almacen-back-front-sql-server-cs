@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class CondicionesPagosController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code CondicionesPagosController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class CondicionesPagosController : Controller {
         private readonly AlmacenContext _context;
 
-        public CondicionesPagosController(AlmacenContext context)
-        {
+        public CondicionesPagosController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: CondicionesPagos
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.CondicionesPagos.ToListAsync());
         }
 
         // GET: CondicionesPagos/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.CondicionesPagos == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.CondicionesPagos == null) {
                 return NotFound();
             }
 
             var condicionesPagos = await _context.CondicionesPagos
                 .FirstOrDefaultAsync(m => m.IntIdCondicionPago == id);
-            if (condicionesPagos == null)
-            {
+            if (condicionesPagos == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: CondicionesPagos/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdCondicionPago,StrNombreCondicion,StrDescripcion,BitDeudor,BitAcreedor,IntDiiaFijo,IntMesesAdicionales,IntDiasTolerancia,IntNumeroPlazos,FltDescuentoTotal,FltInteresCredito,DecHaberMaximo,StrUsuario,DtFecha")] CondicionesPagos condicionesPagos)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdCondicionPago,StrNombreCondicion,StrDescripcion,BitDeudor,BitAcreedor,IntDiiaFijo,IntMesesAdicionales,IntDiasTolerancia,IntNumeroPlazos,FltDescuentoTotal,FltInteresCredito,DecHaberMaximo,StrUsuario,DtFecha")] CondicionesPagos condicionesPagos) {
+            if (ModelState.IsValid) {
                 _context.Add(condicionesPagos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: CondicionesPagos/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.CondicionesPagos == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.CondicionesPagos == null) {
                 return NotFound();
             }
 
             var condicionesPagos = await _context.CondicionesPagos.FindAsync(id);
-            if (condicionesPagos == null)
-            {
+            if (condicionesPagos == null) {
                 return NotFound();
             }
             return View(condicionesPagos);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdCondicionPago,StrNombreCondicion,StrDescripcion,BitDeudor,BitAcreedor,IntDiiaFijo,IntMesesAdicionales,IntDiasTolerancia,IntNumeroPlazos,FltDescuentoTotal,FltInteresCredito,DecHaberMaximo,StrUsuario,DtFecha")] CondicionesPagos condicionesPagos)
-        {
-            if (id != condicionesPagos.IntIdCondicionPago)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdCondicionPago,StrNombreCondicion,StrDescripcion,BitDeudor,BitAcreedor,IntDiiaFijo,IntMesesAdicionales,IntDiasTolerancia,IntNumeroPlazos,FltDescuentoTotal,FltInteresCredito,DecHaberMaximo,StrUsuario,DtFecha")] CondicionesPagos condicionesPagos) {
+            if (id != condicionesPagos.IntIdCondicionPago) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(condicionesPagos);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CondicionesPagosExists(condicionesPagos.IntIdCondicionPago))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!CondicionesPagosExists(condicionesPagos.IntIdCondicionPago)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: CondicionesPagos/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.CondicionesPagos == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.CondicionesPagos == null) {
                 return NotFound();
             }
 
             var condicionesPagos = await _context.CondicionesPagos
                 .FirstOrDefaultAsync(m => m.IntIdCondicionPago == id);
-            if (condicionesPagos == null)
-            {
+            if (condicionesPagos == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: CondicionesPagos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.CondicionesPagos == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.CondicionesPagos == null) {
                 return Problem("Entity set 'AlmacenContext.CondicionesPagos'  is null.");
             }
             var condicionesPagos = await _context.CondicionesPagos.FindAsync(id);
-            if (condicionesPagos != null)
-            {
+            if (condicionesPagos != null) {
                 _context.CondicionesPagos.Remove(condicionesPagos);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CondicionesPagosExists(long? id)
-        {
+        private bool CondicionesPagosExists(long? id) {
             return _context.CondicionesPagos.Any(e => e.IntIdCondicionPago == id);
         }
     }

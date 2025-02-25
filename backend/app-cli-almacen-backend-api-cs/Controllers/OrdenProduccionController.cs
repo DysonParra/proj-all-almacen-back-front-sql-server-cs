@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class OrdenProduccionController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code OrdenProduccionController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class OrdenProduccionController : Controller {
         private readonly AlmacenContext _context;
 
-        public OrdenProduccionController(AlmacenContext context)
-        {
+        public OrdenProduccionController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: OrdenProduccion
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.OrdenProduccion.ToListAsync());
         }
 
         // GET: OrdenProduccion/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.OrdenProduccion == null)
-            {
+        public async Task<IActionResult> Details(string id) {
+            if (id == null || _context.OrdenProduccion == null) {
                 return NotFound();
             }
 
             var ordenProduccion = await _context.OrdenProduccion
                 .FirstOrDefaultAsync(m => m.StrNumeroOrden == id);
-            if (ordenProduccion == null)
-            {
+            if (ordenProduccion == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: OrdenProduccion/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StrNumeroOrden,StrReferencia,IntIdEstadoProduccion,IntIdRutaOrdenTrabajo,IntIdCentroTrabajo,DtFechaEstimada,DtFechaInicioEstimada,DtFechaFinalizacion,DecCantidadPlanificada,StrOrigenOrden,StrUsuario,DtFecha,IntIdListaMateriales,StrCodigoMaterial,IntIdUnidadMedida")] OrdenProduccion ordenProduccion)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("StrNumeroOrden,StrReferencia,IntIdEstadoProduccion,IntIdRutaOrdenTrabajo,IntIdCentroTrabajo,DtFechaEstimada,DtFechaInicioEstimada,DtFechaFinalizacion,DecCantidadPlanificada,StrOrigenOrden,StrUsuario,DtFecha,IntIdListaMateriales,StrCodigoMaterial,IntIdUnidadMedida")] OrdenProduccion ordenProduccion) {
+            if (ModelState.IsValid) {
                 _context.Add(ordenProduccion);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: OrdenProduccion/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null || _context.OrdenProduccion == null)
-            {
+        public async Task<IActionResult> Edit(string id) {
+            if (id == null || _context.OrdenProduccion == null) {
                 return NotFound();
             }
 
             var ordenProduccion = await _context.OrdenProduccion.FindAsync(id);
-            if (ordenProduccion == null)
-            {
+            if (ordenProduccion == null) {
                 return NotFound();
             }
             return View(ordenProduccion);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StrNumeroOrden,StrReferencia,IntIdEstadoProduccion,IntIdRutaOrdenTrabajo,IntIdCentroTrabajo,DtFechaEstimada,DtFechaInicioEstimada,DtFechaFinalizacion,DecCantidadPlanificada,StrOrigenOrden,StrUsuario,DtFecha,IntIdListaMateriales,StrCodigoMaterial,IntIdUnidadMedida")] OrdenProduccion ordenProduccion)
-        {
-            if (id != ordenProduccion.StrNumeroOrden)
-            {
+        public async Task<IActionResult> Edit(string id, [Bind("StrNumeroOrden,StrReferencia,IntIdEstadoProduccion,IntIdRutaOrdenTrabajo,IntIdCentroTrabajo,DtFechaEstimada,DtFechaInicioEstimada,DtFechaFinalizacion,DecCantidadPlanificada,StrOrigenOrden,StrUsuario,DtFecha,IntIdListaMateriales,StrCodigoMaterial,IntIdUnidadMedida")] OrdenProduccion ordenProduccion) {
+            if (id != ordenProduccion.StrNumeroOrden) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(ordenProduccion);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OrdenProduccionExists(ordenProduccion.StrNumeroOrden))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!OrdenProduccionExists(ordenProduccion.StrNumeroOrden)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: OrdenProduccion/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null || _context.OrdenProduccion == null)
-            {
+        public async Task<IActionResult> Delete(string id) {
+            if (id == null || _context.OrdenProduccion == null) {
                 return NotFound();
             }
 
             var ordenProduccion = await _context.OrdenProduccion
                 .FirstOrDefaultAsync(m => m.StrNumeroOrden == id);
-            if (ordenProduccion == null)
-            {
+            if (ordenProduccion == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: OrdenProduccion/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            if (_context.OrdenProduccion == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(string id) {
+            if (_context.OrdenProduccion == null) {
                 return Problem("Entity set 'AlmacenContext.OrdenProduccion'  is null.");
             }
             var ordenProduccion = await _context.OrdenProduccion.FindAsync(id);
-            if (ordenProduccion != null)
-            {
+            if (ordenProduccion != null) {
                 _context.OrdenProduccion.Remove(ordenProduccion);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OrdenProduccionExists(string id)
-        {
+        private bool OrdenProduccionExists(string id) {
             return _context.OrdenProduccion.Any(e => e.StrNumeroOrden == id);
         }
     }

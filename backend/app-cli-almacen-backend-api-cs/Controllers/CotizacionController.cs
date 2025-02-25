@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class CotizacionController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code CotizacionController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class CotizacionController : Controller {
         private readonly AlmacenContext _context;
 
-        public CotizacionController(AlmacenContext context)
-        {
+        public CotizacionController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: Cotizacion
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Cotizacion.ToListAsync());
         }
 
         // GET: Cotizacion/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Cotizacion == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.Cotizacion == null) {
                 return NotFound();
             }
 
             var cotizacion = await _context.Cotizacion
                 .FirstOrDefaultAsync(m => m.IntIdCotizacion == id);
-            if (cotizacion == null)
-            {
+            if (cotizacion == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: Cotizacion/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdCotizacion,IntCabecera,IntIdProveedor,StrEstado,IntCodigoMaterial,StrDescripcionMaterial,StrNombreProveedor,StrBuzonProveedor,DblCantidadRequerida,DblCantidadCotizada,DblValorCotizado,DblDescuento,DtFechaNecesaria,DtFechaEntrega,DtFechaCreacion,IntIdPlanCompra")] Cotizacion cotizacion)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdCotizacion,IntCabecera,IntIdProveedor,StrEstado,IntCodigoMaterial,StrDescripcionMaterial,StrNombreProveedor,StrBuzonProveedor,DblCantidadRequerida,DblCantidadCotizada,DblValorCotizado,DblDescuento,DtFechaNecesaria,DtFechaEntrega,DtFechaCreacion,IntIdPlanCompra")] Cotizacion cotizacion) {
+            if (ModelState.IsValid) {
                 _context.Add(cotizacion);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: Cotizacion/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Cotizacion == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.Cotizacion == null) {
                 return NotFound();
             }
 
             var cotizacion = await _context.Cotizacion.FindAsync(id);
-            if (cotizacion == null)
-            {
+            if (cotizacion == null) {
                 return NotFound();
             }
             return View(cotizacion);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("IntIdCotizacion,IntCabecera,IntIdProveedor,StrEstado,IntCodigoMaterial,StrDescripcionMaterial,StrNombreProveedor,StrBuzonProveedor,DblCantidadRequerida,DblCantidadCotizada,DblValorCotizado,DblDescuento,DtFechaNecesaria,DtFechaEntrega,DtFechaCreacion,IntIdPlanCompra")] Cotizacion cotizacion)
-        {
-            if (id != cotizacion.IntIdCotizacion)
-            {
+        public async Task<IActionResult> Edit(int? id, [Bind("IntIdCotizacion,IntCabecera,IntIdProveedor,StrEstado,IntCodigoMaterial,StrDescripcionMaterial,StrNombreProveedor,StrBuzonProveedor,DblCantidadRequerida,DblCantidadCotizada,DblValorCotizado,DblDescuento,DtFechaNecesaria,DtFechaEntrega,DtFechaCreacion,IntIdPlanCompra")] Cotizacion cotizacion) {
+            if (id != cotizacion.IntIdCotizacion) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(cotizacion);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CotizacionExists(cotizacion.IntIdCotizacion))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!CotizacionExists(cotizacion.IntIdCotizacion)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: Cotizacion/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Cotizacion == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.Cotizacion == null) {
                 return NotFound();
             }
 
             var cotizacion = await _context.Cotizacion
                 .FirstOrDefaultAsync(m => m.IntIdCotizacion == id);
-            if (cotizacion == null)
-            {
+            if (cotizacion == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: Cotizacion/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.Cotizacion == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(int? id) {
+            if (_context.Cotizacion == null) {
                 return Problem("Entity set 'AlmacenContext.Cotizacion'  is null.");
             }
             var cotizacion = await _context.Cotizacion.FindAsync(id);
-            if (cotizacion != null)
-            {
+            if (cotizacion != null) {
                 _context.Cotizacion.Remove(cotizacion);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CotizacionExists(int? id)
-        {
+        private bool CotizacionExists(int? id) {
             return _context.Cotizacion.Any(e => e.IntIdCotizacion == id);
         }
     }

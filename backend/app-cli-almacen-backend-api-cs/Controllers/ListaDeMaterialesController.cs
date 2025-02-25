@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class ListaDeMaterialesController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code ListaDeMaterialesController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class ListaDeMaterialesController : Controller {
         private readonly AlmacenContext _context;
 
-        public ListaDeMaterialesController(AlmacenContext context)
-        {
+        public ListaDeMaterialesController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: ListaDeMateriales
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.ListaDeMateriales.ToListAsync());
         }
 
         // GET: ListaDeMateriales/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.ListaDeMateriales == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.ListaDeMateriales == null) {
                 return NotFound();
             }
 
             var listaDeMateriales = await _context.ListaDeMateriales
                 .FirstOrDefaultAsync(m => m.IntIdListaMaterial == id);
-            if (listaDeMateriales == null)
-            {
+            if (listaDeMateriales == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: ListaDeMateriales/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdListaMaterial,DtFechaInicio,DtFechaFin,IntCantidad,DecPrecioUnitario,StrUsuario,DtFecha,IntIdBodega,IntIdTipoListaMaterial,IntIdListaPrecio,StrCodigoMaterial,StrCodigoComponente,IntIdUnidadMedida")] ListaDeMateriales listaDeMateriales)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdListaMaterial,DtFechaInicio,DtFechaFin,IntCantidad,DecPrecioUnitario,StrUsuario,DtFecha,IntIdBodega,IntIdTipoListaMaterial,IntIdListaPrecio,StrCodigoMaterial,StrCodigoComponente,IntIdUnidadMedida")] ListaDeMateriales listaDeMateriales) {
+            if (ModelState.IsValid) {
                 _context.Add(listaDeMateriales);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: ListaDeMateriales/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.ListaDeMateriales == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.ListaDeMateriales == null) {
                 return NotFound();
             }
 
             var listaDeMateriales = await _context.ListaDeMateriales.FindAsync(id);
-            if (listaDeMateriales == null)
-            {
+            if (listaDeMateriales == null) {
                 return NotFound();
             }
             return View(listaDeMateriales);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdListaMaterial,DtFechaInicio,DtFechaFin,IntCantidad,DecPrecioUnitario,StrUsuario,DtFecha,IntIdBodega,IntIdTipoListaMaterial,IntIdListaPrecio,StrCodigoMaterial,StrCodigoComponente,IntIdUnidadMedida")] ListaDeMateriales listaDeMateriales)
-        {
-            if (id != listaDeMateriales.IntIdListaMaterial)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdListaMaterial,DtFechaInicio,DtFechaFin,IntCantidad,DecPrecioUnitario,StrUsuario,DtFecha,IntIdBodega,IntIdTipoListaMaterial,IntIdListaPrecio,StrCodigoMaterial,StrCodigoComponente,IntIdUnidadMedida")] ListaDeMateriales listaDeMateriales) {
+            if (id != listaDeMateriales.IntIdListaMaterial) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(listaDeMateriales);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ListaDeMaterialesExists(listaDeMateriales.IntIdListaMaterial))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!ListaDeMaterialesExists(listaDeMateriales.IntIdListaMaterial)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: ListaDeMateriales/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.ListaDeMateriales == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.ListaDeMateriales == null) {
                 return NotFound();
             }
 
             var listaDeMateriales = await _context.ListaDeMateriales
                 .FirstOrDefaultAsync(m => m.IntIdListaMaterial == id);
-            if (listaDeMateriales == null)
-            {
+            if (listaDeMateriales == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: ListaDeMateriales/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.ListaDeMateriales == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.ListaDeMateriales == null) {
                 return Problem("Entity set 'AlmacenContext.ListaDeMateriales'  is null.");
             }
             var listaDeMateriales = await _context.ListaDeMateriales.FindAsync(id);
-            if (listaDeMateriales != null)
-            {
+            if (listaDeMateriales != null) {
                 _context.ListaDeMateriales.Remove(listaDeMateriales);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ListaDeMaterialesExists(long? id)
-        {
+        private bool ListaDeMaterialesExists(long? id) {
             return _context.ListaDeMateriales.Any(e => e.IntIdListaMaterial == id);
         }
     }

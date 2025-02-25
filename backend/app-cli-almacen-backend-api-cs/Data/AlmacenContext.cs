@@ -19,13 +19,17 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Project.Models;
 
-namespace Almacen.Data
-{
-    public class AlmacenContext : DbContext
-    {
+namespace Almacen.Data {
+
+    /**
+     * TODO: Description of {@code AlmacenContext}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class AlmacenContext : DbContext {
         public AlmacenContext (DbContextOptions<AlmacenContext> options)
-            : base(options)
-        {
+            : base(options) {
         }
 
         public DbSet<Project.Models.Agentes> Agentes { get; set; } = default!;

@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class MmCodigoEquivalenteController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code MmCodigoEquivalenteController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class MmCodigoEquivalenteController : Controller {
         private readonly AlmacenContext _context;
 
-        public MmCodigoEquivalenteController(AlmacenContext context)
-        {
+        public MmCodigoEquivalenteController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: MmCodigoEquivalente
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.MmCodigoEquivalente.ToListAsync());
         }
 
         // GET: MmCodigoEquivalente/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.MmCodigoEquivalente == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.MmCodigoEquivalente == null) {
                 return NotFound();
             }
 
             var mmCodigoEquivalente = await _context.MmCodigoEquivalente
                 .FirstOrDefaultAsync(m => m.IntIdMmCodigoEquivalente == id);
-            if (mmCodigoEquivalente == null)
-            {
+            if (mmCodigoEquivalente == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: MmCodigoEquivalente/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdMmCodigoEquivalente,StrTipoCodigoEquivalente,StrValorCodigoEquivalente,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MmCodigoEquivalente mmCodigoEquivalente)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdMmCodigoEquivalente,StrTipoCodigoEquivalente,StrValorCodigoEquivalente,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MmCodigoEquivalente mmCodigoEquivalente) {
+            if (ModelState.IsValid) {
                 _context.Add(mmCodigoEquivalente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: MmCodigoEquivalente/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.MmCodigoEquivalente == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.MmCodigoEquivalente == null) {
                 return NotFound();
             }
 
             var mmCodigoEquivalente = await _context.MmCodigoEquivalente.FindAsync(id);
-            if (mmCodigoEquivalente == null)
-            {
+            if (mmCodigoEquivalente == null) {
                 return NotFound();
             }
             return View(mmCodigoEquivalente);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdMmCodigoEquivalente,StrTipoCodigoEquivalente,StrValorCodigoEquivalente,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MmCodigoEquivalente mmCodigoEquivalente)
-        {
-            if (id != mmCodigoEquivalente.IntIdMmCodigoEquivalente)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdMmCodigoEquivalente,StrTipoCodigoEquivalente,StrValorCodigoEquivalente,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MmCodigoEquivalente mmCodigoEquivalente) {
+            if (id != mmCodigoEquivalente.IntIdMmCodigoEquivalente) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(mmCodigoEquivalente);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MmCodigoEquivalenteExists(mmCodigoEquivalente.IntIdMmCodigoEquivalente))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!MmCodigoEquivalenteExists(mmCodigoEquivalente.IntIdMmCodigoEquivalente)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: MmCodigoEquivalente/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.MmCodigoEquivalente == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.MmCodigoEquivalente == null) {
                 return NotFound();
             }
 
             var mmCodigoEquivalente = await _context.MmCodigoEquivalente
                 .FirstOrDefaultAsync(m => m.IntIdMmCodigoEquivalente == id);
-            if (mmCodigoEquivalente == null)
-            {
+            if (mmCodigoEquivalente == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: MmCodigoEquivalente/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.MmCodigoEquivalente == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.MmCodigoEquivalente == null) {
                 return Problem("Entity set 'AlmacenContext.MmCodigoEquivalente'  is null.");
             }
             var mmCodigoEquivalente = await _context.MmCodigoEquivalente.FindAsync(id);
-            if (mmCodigoEquivalente != null)
-            {
+            if (mmCodigoEquivalente != null) {
                 _context.MmCodigoEquivalente.Remove(mmCodigoEquivalente);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MmCodigoEquivalenteExists(long? id)
-        {
+        private bool MmCodigoEquivalenteExists(long? id) {
             return _context.MmCodigoEquivalente.Any(e => e.IntIdMmCodigoEquivalente == id);
         }
     }

@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class ConsecutivosController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code ConsecutivosController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class ConsecutivosController : Controller {
         private readonly AlmacenContext _context;
 
-        public ConsecutivosController(AlmacenContext context)
-        {
+        public ConsecutivosController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: Consecutivos
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Consecutivos.ToListAsync());
         }
 
         // GET: Consecutivos/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.Consecutivos == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.Consecutivos == null) {
                 return NotFound();
             }
 
             var consecutivos = await _context.Consecutivos
                 .FirstOrDefaultAsync(m => m.IntIdConsecutivo == id);
-            if (consecutivos == null)
-            {
+            if (consecutivos == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: Consecutivos/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdConsecutivo,StrResolucion,IntValorInicial,IntValorFinal,IntIncremento,IntValorActual,StrCaracterLlenado,DtFechaInicial,DtFechaFinal,StrSufijo,StrPrefijo,BitHabilitado,StrUsuario,DtFecha,IntIdTipoDocumento")] Consecutivos consecutivos)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdConsecutivo,StrResolucion,IntValorInicial,IntValorFinal,IntIncremento,IntValorActual,StrCaracterLlenado,DtFechaInicial,DtFechaFinal,StrSufijo,StrPrefijo,BitHabilitado,StrUsuario,DtFecha,IntIdTipoDocumento")] Consecutivos consecutivos) {
+            if (ModelState.IsValid) {
                 _context.Add(consecutivos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: Consecutivos/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.Consecutivos == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.Consecutivos == null) {
                 return NotFound();
             }
 
             var consecutivos = await _context.Consecutivos.FindAsync(id);
-            if (consecutivos == null)
-            {
+            if (consecutivos == null) {
                 return NotFound();
             }
             return View(consecutivos);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdConsecutivo,StrResolucion,IntValorInicial,IntValorFinal,IntIncremento,IntValorActual,StrCaracterLlenado,DtFechaInicial,DtFechaFinal,StrSufijo,StrPrefijo,BitHabilitado,StrUsuario,DtFecha,IntIdTipoDocumento")] Consecutivos consecutivos)
-        {
-            if (id != consecutivos.IntIdConsecutivo)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdConsecutivo,StrResolucion,IntValorInicial,IntValorFinal,IntIncremento,IntValorActual,StrCaracterLlenado,DtFechaInicial,DtFechaFinal,StrSufijo,StrPrefijo,BitHabilitado,StrUsuario,DtFecha,IntIdTipoDocumento")] Consecutivos consecutivos) {
+            if (id != consecutivos.IntIdConsecutivo) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(consecutivos);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ConsecutivosExists(consecutivos.IntIdConsecutivo))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!ConsecutivosExists(consecutivos.IntIdConsecutivo)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: Consecutivos/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.Consecutivos == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.Consecutivos == null) {
                 return NotFound();
             }
 
             var consecutivos = await _context.Consecutivos
                 .FirstOrDefaultAsync(m => m.IntIdConsecutivo == id);
-            if (consecutivos == null)
-            {
+            if (consecutivos == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: Consecutivos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.Consecutivos == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.Consecutivos == null) {
                 return Problem("Entity set 'AlmacenContext.Consecutivos'  is null.");
             }
             var consecutivos = await _context.Consecutivos.FindAsync(id);
-            if (consecutivos != null)
-            {
+            if (consecutivos != null) {
                 _context.Consecutivos.Remove(consecutivos);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ConsecutivosExists(long? id)
-        {
+        private bool ConsecutivosExists(long? id) {
             return _context.Consecutivos.Any(e => e.IntIdConsecutivo == id);
         }
     }

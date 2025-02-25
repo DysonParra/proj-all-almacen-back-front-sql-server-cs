@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Almacen.Data;
 using Project.Models;
 
-namespace Almacen.Controllers
-{
-    public class UnidadMedidaController : Controller
-    {
+namespace Almacen.Controllers {
+
+    /**
+     * TODO: Description of {@code UnidadMedidaController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class UnidadMedidaController : Controller {
         private readonly AlmacenContext _context;
 
-        public UnidadMedidaController(AlmacenContext context)
-        {
+        public UnidadMedidaController(AlmacenContext context) {
             _context = context;
         }
 
         // GET: UnidadMedida
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.UnidadMedida.ToListAsync());
         }
 
         // GET: UnidadMedida/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.UnidadMedida == null)
-            {
+        public async Task<IActionResult> Details(long? id) {
+            if (id == null || _context.UnidadMedida == null) {
                 return NotFound();
             }
 
             var unidadMedida = await _context.UnidadMedida
                 .FirstOrDefaultAsync(m => m.IntIdUnidadMedida == id);
-            if (unidadMedida == null)
-            {
+            if (unidadMedida == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Almacen.Controllers
         }
 
         // GET: UnidadMedida/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdUnidadMedida,StrNombre,StrSimbolo,FltFactor,FltPrecision,FltConversion,IntDecimales,BitActivo,StrUsuario,DtFecha,IntIdTipoUnidadMedida")] UnidadMedida unidadMedida)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdUnidadMedida,StrNombre,StrSimbolo,FltFactor,FltPrecision,FltConversion,IntDecimales,BitActivo,StrUsuario,DtFecha,IntIdTipoUnidadMedida")] UnidadMedida unidadMedida) {
+            if (ModelState.IsValid) {
                 _context.Add(unidadMedida);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Almacen.Controllers
         }
 
         // GET: UnidadMedida/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null || _context.UnidadMedida == null)
-            {
+        public async Task<IActionResult> Edit(long? id) {
+            if (id == null || _context.UnidadMedida == null) {
                 return NotFound();
             }
 
             var unidadMedida = await _context.UnidadMedida.FindAsync(id);
-            if (unidadMedida == null)
-            {
+            if (unidadMedida == null) {
                 return NotFound();
             }
             return View(unidadMedida);
@@ -100,28 +94,21 @@ namespace Almacen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("IntIdUnidadMedida,StrNombre,StrSimbolo,FltFactor,FltPrecision,FltConversion,IntDecimales,BitActivo,StrUsuario,DtFecha,IntIdTipoUnidadMedida")] UnidadMedida unidadMedida)
-        {
-            if (id != unidadMedida.IntIdUnidadMedida)
-            {
+        public async Task<IActionResult> Edit(long? id, [Bind("IntIdUnidadMedida,StrNombre,StrSimbolo,FltFactor,FltPrecision,FltConversion,IntDecimales,BitActivo,StrUsuario,DtFecha,IntIdTipoUnidadMedida")] UnidadMedida unidadMedida) {
+            if (id != unidadMedida.IntIdUnidadMedida) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(unidadMedida);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UnidadMedidaExists(unidadMedida.IntIdUnidadMedida))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!UnidadMedidaExists(unidadMedida.IntIdUnidadMedida)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Almacen.Controllers
         }
 
         // GET: UnidadMedida/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null || _context.UnidadMedida == null)
-            {
+        public async Task<IActionResult> Delete(long? id) {
+            if (id == null || _context.UnidadMedida == null) {
                 return NotFound();
             }
 
             var unidadMedida = await _context.UnidadMedida
                 .FirstOrDefaultAsync(m => m.IntIdUnidadMedida == id);
-            if (unidadMedida == null)
-            {
+            if (unidadMedida == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Almacen.Controllers
         // POST: UnidadMedida/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id)
-        {
-            if (_context.UnidadMedida == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(long? id) {
+            if (_context.UnidadMedida == null) {
                 return Problem("Entity set 'AlmacenContext.UnidadMedida'  is null.");
             }
             var unidadMedida = await _context.UnidadMedida.FindAsync(id);
-            if (unidadMedida != null)
-            {
+            if (unidadMedida != null) {
                 _context.UnidadMedida.Remove(unidadMedida);
             }
 
@@ -167,8 +148,7 @@ namespace Almacen.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UnidadMedidaExists(long? id)
-        {
+        private bool UnidadMedidaExists(long? id) {
             return _context.UnidadMedida.Any(e => e.IntIdUnidadMedida == id);
         }
     }
