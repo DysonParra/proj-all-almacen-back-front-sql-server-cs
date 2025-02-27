@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class MovimientosDetallesController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code MovimientosDetallesController}.
+         *
+         */
         public MovimientosDetallesController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: MovimientosDetalles
+        /**
+         * GET: MovimientosDetalles
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.MovimientosDetalles.ToListAsync());
         }
 
-        // GET: MovimientosDetalles/Details/5
+        /**
+         * GET: MovimientosDetalles/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.MovimientosDetalles == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(movimientosDetalles);
         }
 
-        // GET: MovimientosDetalles/Create
+        /**
+         * GET: MovimientosDetalles/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: MovimientosDetalles/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: MovimientosDetalles/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdMovimientoDetalle,DecValorUnitario,DecSobreCosto,DecCantidad,StrUsuario,DtFecha,IntIdEstadoSaldo,StrCodigoProducto,StrNumeroDocumento")] MovimientosDetalles movimientosDetalles) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(movimientosDetalles);
         }
 
-        // GET: MovimientosDetalles/Edit/5
+        /**
+         * GET: MovimientosDetalles/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.MovimientosDetalles == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(movimientosDetalles);
         }
 
-        // POST: MovimientosDetalles/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: MovimientosDetalles/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdMovimientoDetalle,DecValorUnitario,DecSobreCosto,DecCantidad,StrUsuario,DtFecha,IntIdEstadoSaldo,StrCodigoProducto,StrNumeroDocumento")] MovimientosDetalles movimientosDetalles) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(movimientosDetalles);
         }
 
-        // GET: MovimientosDetalles/Delete/5
+        /**
+         * GET: MovimientosDetalles/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.MovimientosDetalles == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(movimientosDetalles);
         }
 
-        // POST: MovimientosDetalles/Delete/5
+        /**
+         * POST: MovimientosDetalles/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code MovimientosDetallesExists}.
+         *
+         */
         private bool MovimientosDetallesExists(long? id) {
             return _context.MovimientosDetalles.Any(e => e.IntIdMovimientoDetalle == id);
         }

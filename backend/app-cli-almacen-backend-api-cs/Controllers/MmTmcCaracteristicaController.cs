@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class MmTmcCaracteristicaController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code MmTmcCaracteristicaController}.
+         *
+         */
         public MmTmcCaracteristicaController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: MmTmcCaracteristica
+        /**
+         * GET: MmTmcCaracteristica
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.MmTmcCaracteristica.ToListAsync());
         }
 
-        // GET: MmTmcCaracteristica/Details/5
+        /**
+         * GET: MmTmcCaracteristica/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.MmTmcCaracteristica == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(mmTmcCaracteristica);
         }
 
-        // GET: MmTmcCaracteristica/Create
+        /**
+         * GET: MmTmcCaracteristica/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: MmTmcCaracteristica/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: MmTmcCaracteristica/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdMmTmcCaracteristica,IntIdTipoMaterialCaracteristica,StrTipoMaterial,StrDescripcionTipoMaterialCaracteristica,IntTipoDato,StrReglaValidacion,BitVisibleDetalle,IntOrdenDetall,StrUsuario,DtFecha,IntIdTipoMaterial")] MmTmcCaracteristica mmTmcCaracteristica) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(mmTmcCaracteristica);
         }
 
-        // GET: MmTmcCaracteristica/Edit/5
+        /**
+         * GET: MmTmcCaracteristica/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.MmTmcCaracteristica == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(mmTmcCaracteristica);
         }
 
-        // POST: MmTmcCaracteristica/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: MmTmcCaracteristica/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdMmTmcCaracteristica,IntIdTipoMaterialCaracteristica,StrTipoMaterial,StrDescripcionTipoMaterialCaracteristica,IntTipoDato,StrReglaValidacion,BitVisibleDetalle,IntOrdenDetall,StrUsuario,DtFecha,IntIdTipoMaterial")] MmTmcCaracteristica mmTmcCaracteristica) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(mmTmcCaracteristica);
         }
 
-        // GET: MmTmcCaracteristica/Delete/5
+        /**
+         * GET: MmTmcCaracteristica/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.MmTmcCaracteristica == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(mmTmcCaracteristica);
         }
 
-        // POST: MmTmcCaracteristica/Delete/5
+        /**
+         * POST: MmTmcCaracteristica/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code MmTmcCaracteristicaExists}.
+         *
+         */
         private bool MmTmcCaracteristicaExists(long? id) {
             return _context.MmTmcCaracteristica.Any(e => e.IntIdMmTmcCaracteristica == id);
         }

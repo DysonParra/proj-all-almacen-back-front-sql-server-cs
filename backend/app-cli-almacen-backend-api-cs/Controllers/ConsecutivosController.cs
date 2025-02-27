@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class ConsecutivosController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code ConsecutivosController}.
+         *
+         */
         public ConsecutivosController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: Consecutivos
+        /**
+         * GET: Consecutivos
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Consecutivos.ToListAsync());
         }
 
-        // GET: Consecutivos/Details/5
+        /**
+         * GET: Consecutivos/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.Consecutivos == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(consecutivos);
         }
 
-        // GET: Consecutivos/Create
+        /**
+         * GET: Consecutivos/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Consecutivos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Consecutivos/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdConsecutivo,StrResolucion,IntValorInicial,IntValorFinal,IntIncremento,IntValorActual,StrCaracterLlenado,DtFechaInicial,DtFechaFinal,StrSufijo,StrPrefijo,BitHabilitado,StrUsuario,DtFecha,IntIdTipoDocumento")] Consecutivos consecutivos) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(consecutivos);
         }
 
-        // GET: Consecutivos/Edit/5
+        /**
+         * GET: Consecutivos/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.Consecutivos == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(consecutivos);
         }
 
-        // POST: Consecutivos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Consecutivos/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdConsecutivo,StrResolucion,IntValorInicial,IntValorFinal,IntIncremento,IntValorActual,StrCaracterLlenado,DtFechaInicial,DtFechaFinal,StrSufijo,StrPrefijo,BitHabilitado,StrUsuario,DtFecha,IntIdTipoDocumento")] Consecutivos consecutivos) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(consecutivos);
         }
 
-        // GET: Consecutivos/Delete/5
+        /**
+         * GET: Consecutivos/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.Consecutivos == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(consecutivos);
         }
 
-        // POST: Consecutivos/Delete/5
+        /**
+         * POST: Consecutivos/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ConsecutivosExists}.
+         *
+         */
         private bool ConsecutivosExists(long? id) {
             return _context.Consecutivos.Any(e => e.IntIdConsecutivo == id);
         }

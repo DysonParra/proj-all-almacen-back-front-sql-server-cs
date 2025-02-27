@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class RemisionesVentaMaterialesController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code RemisionesVentaMaterialesController}.
+         *
+         */
         public RemisionesVentaMaterialesController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: RemisionesVentaMateriales
+        /**
+         * GET: RemisionesVentaMateriales
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.RemisionesVentaMateriales.ToListAsync());
         }
 
-        // GET: RemisionesVentaMateriales/Details/5
+        /**
+         * GET: RemisionesVentaMateriales/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.RemisionesVentaMateriales == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(remisionesVentaMateriales);
         }
 
-        // GET: RemisionesVentaMateriales/Create
+        /**
+         * GET: RemisionesVentaMateriales/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: RemisionesVentaMateriales/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: RemisionesVentaMateriales/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdRemisionVentaMaterial,StrCodigoMaterial,DtFechaNecesaria,DtFechaSolicitud,DblCantidad,DecValorUnitario,FltPorcentajeDescuento,DecCostoPromedio,IntIdRemisionCompra,DecCantidadUnidadMedida,StrUsuario,DtFecha,IntIdMaterial,StrNumeroDocumento,IntIdUnidadMedida")] RemisionesVentaMateriales remisionesVentaMateriales) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(remisionesVentaMateriales);
         }
 
-        // GET: RemisionesVentaMateriales/Edit/5
+        /**
+         * GET: RemisionesVentaMateriales/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.RemisionesVentaMateriales == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(remisionesVentaMateriales);
         }
 
-        // POST: RemisionesVentaMateriales/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: RemisionesVentaMateriales/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdRemisionVentaMaterial,StrCodigoMaterial,DtFechaNecesaria,DtFechaSolicitud,DblCantidad,DecValorUnitario,FltPorcentajeDescuento,DecCostoPromedio,IntIdRemisionCompra,DecCantidadUnidadMedida,StrUsuario,DtFecha,IntIdMaterial,StrNumeroDocumento,IntIdUnidadMedida")] RemisionesVentaMateriales remisionesVentaMateriales) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(remisionesVentaMateriales);
         }
 
-        // GET: RemisionesVentaMateriales/Delete/5
+        /**
+         * GET: RemisionesVentaMateriales/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.RemisionesVentaMateriales == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(remisionesVentaMateriales);
         }
 
-        // POST: RemisionesVentaMateriales/Delete/5
+        /**
+         * POST: RemisionesVentaMateriales/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code RemisionesVentaMaterialesExists}.
+         *
+         */
         private bool RemisionesVentaMaterialesExists(long? id) {
             return _context.RemisionesVentaMateriales.Any(e => e.IntIdRemisionVentaMaterial == id);
         }

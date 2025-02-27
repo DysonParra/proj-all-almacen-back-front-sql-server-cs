@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class TiposMaterialesController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code TiposMaterialesController}.
+         *
+         */
         public TiposMaterialesController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: TiposMateriales
+        /**
+         * GET: TiposMateriales
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.TiposMateriales.ToListAsync());
         }
 
-        // GET: TiposMateriales/Details/5
+        /**
+         * GET: TiposMateriales/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.TiposMateriales == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(tiposMateriales);
         }
 
-        // GET: TiposMateriales/Create
+        /**
+         * GET: TiposMateriales/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: TiposMateriales/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: TiposMateriales/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdTipoMaterial,StrTipoMaterial,StrDescripcionTipoMaterial,StrUsuario,DtFecha")] TiposMateriales tiposMateriales) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(tiposMateriales);
         }
 
-        // GET: TiposMateriales/Edit/5
+        /**
+         * GET: TiposMateriales/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.TiposMateriales == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(tiposMateriales);
         }
 
-        // POST: TiposMateriales/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: TiposMateriales/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoMaterial,StrTipoMaterial,StrDescripcionTipoMaterial,StrUsuario,DtFecha")] TiposMateriales tiposMateriales) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(tiposMateriales);
         }
 
-        // GET: TiposMateriales/Delete/5
+        /**
+         * GET: TiposMateriales/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.TiposMateriales == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(tiposMateriales);
         }
 
-        // POST: TiposMateriales/Delete/5
+        /**
+         * POST: TiposMateriales/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code TiposMaterialesExists}.
+         *
+         */
         private bool TiposMaterialesExists(long? id) {
             return _context.TiposMateriales.Any(e => e.IntIdTipoMaterial == id);
         }

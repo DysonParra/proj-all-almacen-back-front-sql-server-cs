@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class CotizacionController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code CotizacionController}.
+         *
+         */
         public CotizacionController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: Cotizacion
+        /**
+         * GET: Cotizacion
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Cotizacion.ToListAsync());
         }
 
-        // GET: Cotizacion/Details/5
+        /**
+         * GET: Cotizacion/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Cotizacion == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(cotizacion);
         }
 
-        // GET: Cotizacion/Create
+        /**
+         * GET: Cotizacion/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Cotizacion/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Cotizacion/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdCotizacion,IntCabecera,IntIdProveedor,StrEstado,IntCodigoMaterial,StrDescripcionMaterial,StrNombreProveedor,StrBuzonProveedor,DblCantidadRequerida,DblCantidadCotizada,DblValorCotizado,DblDescuento,DtFechaNecesaria,DtFechaEntrega,DtFechaCreacion,IntIdPlanCompra")] Cotizacion cotizacion) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(cotizacion);
         }
 
-        // GET: Cotizacion/Edit/5
+        /**
+         * GET: Cotizacion/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Cotizacion == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(cotizacion);
         }
 
-        // POST: Cotizacion/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Cotizacion/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntIdCotizacion,IntCabecera,IntIdProveedor,StrEstado,IntCodigoMaterial,StrDescripcionMaterial,StrNombreProveedor,StrBuzonProveedor,DblCantidadRequerida,DblCantidadCotizada,DblValorCotizado,DblDescuento,DtFechaNecesaria,DtFechaEntrega,DtFechaCreacion,IntIdPlanCompra")] Cotizacion cotizacion) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(cotizacion);
         }
 
-        // GET: Cotizacion/Delete/5
+        /**
+         * GET: Cotizacion/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Cotizacion == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(cotizacion);
         }
 
-        // POST: Cotizacion/Delete/5
+        /**
+         * POST: Cotizacion/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code CotizacionExists}.
+         *
+         */
         private bool CotizacionExists(int? id) {
             return _context.Cotizacion.Any(e => e.IntIdCotizacion == id);
         }

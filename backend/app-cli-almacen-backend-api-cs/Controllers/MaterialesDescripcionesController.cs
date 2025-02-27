@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class MaterialesDescripcionesController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code MaterialesDescripcionesController}.
+         *
+         */
         public MaterialesDescripcionesController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: MaterialesDescripciones
+        /**
+         * GET: MaterialesDescripciones
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.MaterialesDescripciones.ToListAsync());
         }
 
-        // GET: MaterialesDescripciones/Details/5
+        /**
+         * GET: MaterialesDescripciones/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.MaterialesDescripciones == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(materialesDescripciones);
         }
 
-        // GET: MaterialesDescripciones/Create
+        /**
+         * GET: MaterialesDescripciones/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: MaterialesDescripciones/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: MaterialesDescripciones/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdMaterialDescripcion,StrCultura,StrDescripcionMaterial,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MaterialesDescripciones materialesDescripciones) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(materialesDescripciones);
         }
 
-        // GET: MaterialesDescripciones/Edit/5
+        /**
+         * GET: MaterialesDescripciones/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.MaterialesDescripciones == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(materialesDescripciones);
         }
 
-        // POST: MaterialesDescripciones/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: MaterialesDescripciones/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdMaterialDescripcion,StrCultura,StrDescripcionMaterial,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MaterialesDescripciones materialesDescripciones) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(materialesDescripciones);
         }
 
-        // GET: MaterialesDescripciones/Delete/5
+        /**
+         * GET: MaterialesDescripciones/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.MaterialesDescripciones == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(materialesDescripciones);
         }
 
-        // POST: MaterialesDescripciones/Delete/5
+        /**
+         * POST: MaterialesDescripciones/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code MaterialesDescripcionesExists}.
+         *
+         */
         private bool MaterialesDescripcionesExists(long? id) {
             return _context.MaterialesDescripciones.Any(e => e.IntIdMaterialDescripcion == id);
         }

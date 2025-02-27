@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class RemisionesComprasController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code RemisionesComprasController}.
+         *
+         */
         public RemisionesComprasController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: RemisionesCompras
+        /**
+         * GET: RemisionesCompras
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.RemisionesCompras.ToListAsync());
         }
 
-        // GET: RemisionesCompras/Details/5
+        /**
+         * GET: RemisionesCompras/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.RemisionesCompras == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(remisionesCompras);
         }
 
-        // GET: RemisionesCompras/Create
+        /**
+         * GET: RemisionesCompras/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: RemisionesCompras/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: RemisionesCompras/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdRemisionCompra,StrNumeroRemisionCompra,DtFechaContabilizacion,DtFechaValidez,DtFechaDocumento,DtFechaNecesaria,StrNumeroReferencia,DecTotalBruto,DblPorcentajeDescuento,DblPorcentajeImpuesto,DecValorTotal,StrComentarios,StrUsuario,DtFecha,IntIdInterlocutor,IntIdRemision,IntIdTipoDocumento")] RemisionesCompras remisionesCompras) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(remisionesCompras);
         }
 
-        // GET: RemisionesCompras/Edit/5
+        /**
+         * GET: RemisionesCompras/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.RemisionesCompras == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(remisionesCompras);
         }
 
-        // POST: RemisionesCompras/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: RemisionesCompras/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdRemisionCompra,StrNumeroRemisionCompra,DtFechaContabilizacion,DtFechaValidez,DtFechaDocumento,DtFechaNecesaria,StrNumeroReferencia,DecTotalBruto,DblPorcentajeDescuento,DblPorcentajeImpuesto,DecValorTotal,StrComentarios,StrUsuario,DtFecha,IntIdInterlocutor,IntIdRemision,IntIdTipoDocumento")] RemisionesCompras remisionesCompras) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(remisionesCompras);
         }
 
-        // GET: RemisionesCompras/Delete/5
+        /**
+         * GET: RemisionesCompras/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.RemisionesCompras == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(remisionesCompras);
         }
 
-        // POST: RemisionesCompras/Delete/5
+        /**
+         * POST: RemisionesCompras/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code RemisionesComprasExists}.
+         *
+         */
         private bool RemisionesComprasExists(long? id) {
             return _context.RemisionesCompras.Any(e => e.IntIdRemisionCompra == id);
         }

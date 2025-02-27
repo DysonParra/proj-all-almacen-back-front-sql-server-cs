@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class MmCodigoEquivalenteController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code MmCodigoEquivalenteController}.
+         *
+         */
         public MmCodigoEquivalenteController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: MmCodigoEquivalente
+        /**
+         * GET: MmCodigoEquivalente
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.MmCodigoEquivalente.ToListAsync());
         }
 
-        // GET: MmCodigoEquivalente/Details/5
+        /**
+         * GET: MmCodigoEquivalente/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.MmCodigoEquivalente == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(mmCodigoEquivalente);
         }
 
-        // GET: MmCodigoEquivalente/Create
+        /**
+         * GET: MmCodigoEquivalente/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: MmCodigoEquivalente/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: MmCodigoEquivalente/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdMmCodigoEquivalente,StrTipoCodigoEquivalente,StrValorCodigoEquivalente,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MmCodigoEquivalente mmCodigoEquivalente) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(mmCodigoEquivalente);
         }
 
-        // GET: MmCodigoEquivalente/Edit/5
+        /**
+         * GET: MmCodigoEquivalente/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.MmCodigoEquivalente == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(mmCodigoEquivalente);
         }
 
-        // POST: MmCodigoEquivalente/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: MmCodigoEquivalente/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdMmCodigoEquivalente,StrTipoCodigoEquivalente,StrValorCodigoEquivalente,StrUsuario,DtFecha,IntIdMaterial,StrCodigoMaterial")] MmCodigoEquivalente mmCodigoEquivalente) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(mmCodigoEquivalente);
         }
 
-        // GET: MmCodigoEquivalente/Delete/5
+        /**
+         * GET: MmCodigoEquivalente/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.MmCodigoEquivalente == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(mmCodigoEquivalente);
         }
 
-        // POST: MmCodigoEquivalente/Delete/5
+        /**
+         * POST: MmCodigoEquivalente/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code MmCodigoEquivalenteExists}.
+         *
+         */
         private bool MmCodigoEquivalenteExists(long? id) {
             return _context.MmCodigoEquivalente.Any(e => e.IntIdMmCodigoEquivalente == id);
         }

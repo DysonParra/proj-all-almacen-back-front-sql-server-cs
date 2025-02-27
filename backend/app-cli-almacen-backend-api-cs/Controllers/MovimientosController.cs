@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class MovimientosController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code MovimientosController}.
+         *
+         */
         public MovimientosController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: Movimientos
+        /**
+         * GET: Movimientos
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Movimientos.ToListAsync());
         }
 
-        // GET: Movimientos/Details/5
+        /**
+         * GET: Movimientos/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.Movimientos == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(movimientos);
         }
 
-        // GET: Movimientos/Create
+        /**
+         * GET: Movimientos/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Movimientos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Movimientos/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdMovimiento,StrNumeroDocumento,DtFechaCreacion,DtFechaAnulacion,DecSobreCosto,DecSobreCostoAplicadoProducto,StrObservaciones,StrUsuario,DtFecha,IntIdBodega,IntIdConcepto,IntIdEstadoMovimiento,IntIdRemision,IntIdTipoDocumento,IntIdTipoMovimiento")] Movimientos movimientos) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(movimientos);
         }
 
-        // GET: Movimientos/Edit/5
+        /**
+         * GET: Movimientos/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.Movimientos == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(movimientos);
         }
 
-        // POST: Movimientos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Movimientos/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdMovimiento,StrNumeroDocumento,DtFechaCreacion,DtFechaAnulacion,DecSobreCosto,DecSobreCostoAplicadoProducto,StrObservaciones,StrUsuario,DtFecha,IntIdBodega,IntIdConcepto,IntIdEstadoMovimiento,IntIdRemision,IntIdTipoDocumento,IntIdTipoMovimiento")] Movimientos movimientos) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(movimientos);
         }
 
-        // GET: Movimientos/Delete/5
+        /**
+         * GET: Movimientos/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.Movimientos == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(movimientos);
         }
 
-        // POST: Movimientos/Delete/5
+        /**
+         * POST: Movimientos/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code MovimientosExists}.
+         *
+         */
         private bool MovimientosExists(long? id) {
             return _context.Movimientos.Any(e => e.IntIdMovimiento == id);
         }

@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class ListasPreciosMaterialesController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code ListasPreciosMaterialesController}.
+         *
+         */
         public ListasPreciosMaterialesController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: ListasPreciosMateriales
+        /**
+         * GET: ListasPreciosMateriales
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.ListasPreciosMateriales.ToListAsync());
         }
 
-        // GET: ListasPreciosMateriales/Details/5
+        /**
+         * GET: ListasPreciosMateriales/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.ListasPreciosMateriales == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(listasPreciosMateriales);
         }
 
-        // GET: ListasPreciosMateriales/Create
+        /**
+         * GET: ListasPreciosMateriales/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: ListasPreciosMateriales/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: ListasPreciosMateriales/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntId,IntIdMateriales,IntIdListasPrecios")] ListasPreciosMateriales listasPreciosMateriales) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(listasPreciosMateriales);
         }
 
-        // GET: ListasPreciosMateriales/Edit/5
+        /**
+         * GET: ListasPreciosMateriales/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.ListasPreciosMateriales == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(listasPreciosMateriales);
         }
 
-        // POST: ListasPreciosMateriales/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: ListasPreciosMateriales/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntId,IntIdMateriales,IntIdListasPrecios")] ListasPreciosMateriales listasPreciosMateriales) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(listasPreciosMateriales);
         }
 
-        // GET: ListasPreciosMateriales/Delete/5
+        /**
+         * GET: ListasPreciosMateriales/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.ListasPreciosMateriales == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(listasPreciosMateriales);
         }
 
-        // POST: ListasPreciosMateriales/Delete/5
+        /**
+         * POST: ListasPreciosMateriales/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ListasPreciosMaterialesExists}.
+         *
+         */
         private bool ListasPreciosMaterialesExists(long? id) {
             return _context.ListasPreciosMateriales.Any(e => e.IntId == id);
         }

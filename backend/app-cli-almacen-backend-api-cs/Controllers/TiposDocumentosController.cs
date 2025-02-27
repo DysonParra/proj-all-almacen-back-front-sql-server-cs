@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class TiposDocumentosController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code TiposDocumentosController}.
+         *
+         */
         public TiposDocumentosController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: TiposDocumentos
+        /**
+         * GET: TiposDocumentos
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.TiposDocumentos.ToListAsync());
         }
 
-        // GET: TiposDocumentos/Details/5
+        /**
+         * GET: TiposDocumentos/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.TiposDocumentos == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(tiposDocumentos);
         }
 
-        // GET: TiposDocumentos/Create
+        /**
+         * GET: TiposDocumentos/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: TiposDocumentos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: TiposDocumentos/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdTipoDocumento,StrDescripcionTipoDocumento,BitActivo,StrUsuario,DtFecha,IntIdEstadoRemision,IntIdTipoMovimiento")] TiposDocumentos tiposDocumentos) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(tiposDocumentos);
         }
 
-        // GET: TiposDocumentos/Edit/5
+        /**
+         * GET: TiposDocumentos/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.TiposDocumentos == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(tiposDocumentos);
         }
 
-        // POST: TiposDocumentos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: TiposDocumentos/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoDocumento,StrDescripcionTipoDocumento,BitActivo,StrUsuario,DtFecha,IntIdEstadoRemision,IntIdTipoMovimiento")] TiposDocumentos tiposDocumentos) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(tiposDocumentos);
         }
 
-        // GET: TiposDocumentos/Delete/5
+        /**
+         * GET: TiposDocumentos/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.TiposDocumentos == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(tiposDocumentos);
         }
 
-        // POST: TiposDocumentos/Delete/5
+        /**
+         * POST: TiposDocumentos/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code TiposDocumentosExists}.
+         *
+         */
         private bool TiposDocumentosExists(long? id) {
             return _context.TiposDocumentos.Any(e => e.IntIdTipoDocumento == id);
         }

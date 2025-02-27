@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class ZonasController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code ZonasController}.
+         *
+         */
         public ZonasController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: Zonas
+        /**
+         * GET: Zonas
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Zonas.ToListAsync());
         }
 
-        // GET: Zonas/Details/5
+        /**
+         * GET: Zonas/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.Zonas == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(zonas);
         }
 
-        // GET: Zonas/Create
+        /**
+         * GET: Zonas/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Zonas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Zonas/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrCodigoZona,StrDescripcionZona,BitTransitoDirecto,BitPicking,BitUbicacion,BitDespacho,BitRecepcion,BitActivo,StrUsuario,DtFecha,IntIdBodega")] Zonas zonas) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(zonas);
         }
 
-        // GET: Zonas/Edit/5
+        /**
+         * GET: Zonas/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.Zonas == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(zonas);
         }
 
-        // POST: Zonas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Zonas/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrCodigoZona,StrDescripcionZona,BitTransitoDirecto,BitPicking,BitUbicacion,BitDespacho,BitRecepcion,BitActivo,StrUsuario,DtFecha,IntIdBodega")] Zonas zonas) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(zonas);
         }
 
-        // GET: Zonas/Delete/5
+        /**
+         * GET: Zonas/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.Zonas == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(zonas);
         }
 
-        // POST: Zonas/Delete/5
+        /**
+         * POST: Zonas/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ZonasExists}.
+         *
+         */
         private bool ZonasExists(string id) {
             return _context.Zonas.Any(e => e.StrCodigoZona == id);
         }

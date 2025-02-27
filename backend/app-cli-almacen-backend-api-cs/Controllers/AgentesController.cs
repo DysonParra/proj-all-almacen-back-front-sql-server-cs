@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class AgentesController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code AgentesController}.
+         *
+         */
         public AgentesController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: Agentes
+        /**
+         * GET: Agentes
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Agentes.ToListAsync());
         }
 
-        // GET: Agentes/Details/5
+        /**
+         * GET: Agentes/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.Agentes == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(agentes);
         }
 
-        // GET: Agentes/Create
+        /**
+         * GET: Agentes/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Agentes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Agentes/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdAgente,IntIdEntidad,IntIdAlmacen,StrObservaciones,StrUsuario,DtFecha,IntIdSociedad,IntIdTipoAgente")] Agentes agentes) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(agentes);
         }
 
-        // GET: Agentes/Edit/5
+        /**
+         * GET: Agentes/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.Agentes == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(agentes);
         }
 
-        // POST: Agentes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Agentes/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdAgente,IntIdEntidad,IntIdAlmacen,StrObservaciones,StrUsuario,DtFecha,IntIdSociedad,IntIdTipoAgente")] Agentes agentes) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(agentes);
         }
 
-        // GET: Agentes/Delete/5
+        /**
+         * GET: Agentes/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.Agentes == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(agentes);
         }
 
-        // POST: Agentes/Delete/5
+        /**
+         * POST: Agentes/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code AgentesExists}.
+         *
+         */
         private bool AgentesExists(long? id) {
             return _context.Agentes.Any(e => e.IntIdAgente == id);
         }

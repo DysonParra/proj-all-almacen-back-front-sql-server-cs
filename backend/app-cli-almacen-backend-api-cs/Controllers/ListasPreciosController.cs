@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class ListasPreciosController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code ListasPreciosController}.
+         *
+         */
         public ListasPreciosController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: ListasPrecios
+        /**
+         * GET: ListasPrecios
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.ListasPrecios.ToListAsync());
         }
 
-        // GET: ListasPrecios/Details/5
+        /**
+         * GET: ListasPrecios/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.ListasPrecios == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(listasPrecios);
         }
 
-        // GET: ListasPrecios/Create
+        /**
+         * GET: ListasPrecios/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: ListasPrecios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: ListasPrecios/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdListaPrecio,StrNombreListaPrecios,StrDescripcionListaPrecios,StrUsuario,DtFecha")] ListasPrecios listasPrecios) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(listasPrecios);
         }
 
-        // GET: ListasPrecios/Edit/5
+        /**
+         * GET: ListasPrecios/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.ListasPrecios == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(listasPrecios);
         }
 
-        // POST: ListasPrecios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: ListasPrecios/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdListaPrecio,StrNombreListaPrecios,StrDescripcionListaPrecios,StrUsuario,DtFecha")] ListasPrecios listasPrecios) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(listasPrecios);
         }
 
-        // GET: ListasPrecios/Delete/5
+        /**
+         * GET: ListasPrecios/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.ListasPrecios == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(listasPrecios);
         }
 
-        // POST: ListasPrecios/Delete/5
+        /**
+         * POST: ListasPrecios/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ListasPreciosExists}.
+         *
+         */
         private bool ListasPreciosExists(long? id) {
             return _context.ListasPrecios.Any(e => e.IntIdListaPrecio == id);
         }

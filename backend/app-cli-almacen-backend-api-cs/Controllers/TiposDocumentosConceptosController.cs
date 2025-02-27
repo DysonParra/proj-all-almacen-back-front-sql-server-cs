@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class TiposDocumentosConceptosController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code TiposDocumentosConceptosController}.
+         *
+         */
         public TiposDocumentosConceptosController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: TiposDocumentosConceptos
+        /**
+         * GET: TiposDocumentosConceptos
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.TiposDocumentosConceptos.ToListAsync());
         }
 
-        // GET: TiposDocumentosConceptos/Details/5
+        /**
+         * GET: TiposDocumentosConceptos/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.TiposDocumentosConceptos == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(tiposDocumentosConceptos);
         }
 
-        // GET: TiposDocumentosConceptos/Create
+        /**
+         * GET: TiposDocumentosConceptos/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: TiposDocumentosConceptos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: TiposDocumentosConceptos/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdTipoDocumentoConcepto,BitActivo,StrUsuario,DtFecha,IntIdConcepto,IntIdTipoDocumento")] TiposDocumentosConceptos tiposDocumentosConceptos) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(tiposDocumentosConceptos);
         }
 
-        // GET: TiposDocumentosConceptos/Edit/5
+        /**
+         * GET: TiposDocumentosConceptos/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.TiposDocumentosConceptos == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(tiposDocumentosConceptos);
         }
 
-        // POST: TiposDocumentosConceptos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: TiposDocumentosConceptos/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdTipoDocumentoConcepto,BitActivo,StrUsuario,DtFecha,IntIdConcepto,IntIdTipoDocumento")] TiposDocumentosConceptos tiposDocumentosConceptos) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(tiposDocumentosConceptos);
         }
 
-        // GET: TiposDocumentosConceptos/Delete/5
+        /**
+         * GET: TiposDocumentosConceptos/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.TiposDocumentosConceptos == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(tiposDocumentosConceptos);
         }
 
-        // POST: TiposDocumentosConceptos/Delete/5
+        /**
+         * POST: TiposDocumentosConceptos/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code TiposDocumentosConceptosExists}.
+         *
+         */
         private bool TiposDocumentosConceptosExists(long? id) {
             return _context.TiposDocumentosConceptos.Any(e => e.IntIdTipoDocumentoConcepto == id);
         }

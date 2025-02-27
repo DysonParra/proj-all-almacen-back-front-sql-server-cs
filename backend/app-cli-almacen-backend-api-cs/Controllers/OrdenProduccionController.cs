@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class OrdenProduccionController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code OrdenProduccionController}.
+         *
+         */
         public OrdenProduccionController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: OrdenProduccion
+        /**
+         * GET: OrdenProduccion
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.OrdenProduccion.ToListAsync());
         }
 
-        // GET: OrdenProduccion/Details/5
+        /**
+         * GET: OrdenProduccion/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.OrdenProduccion == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(ordenProduccion);
         }
 
-        // GET: OrdenProduccion/Create
+        /**
+         * GET: OrdenProduccion/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: OrdenProduccion/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: OrdenProduccion/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrNumeroOrden,StrReferencia,IntIdEstadoProduccion,IntIdRutaOrdenTrabajo,IntIdCentroTrabajo,DtFechaEstimada,DtFechaInicioEstimada,DtFechaFinalizacion,DecCantidadPlanificada,StrOrigenOrden,StrUsuario,DtFecha,IntIdListaMateriales,StrCodigoMaterial,IntIdUnidadMedida")] OrdenProduccion ordenProduccion) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(ordenProduccion);
         }
 
-        // GET: OrdenProduccion/Edit/5
+        /**
+         * GET: OrdenProduccion/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.OrdenProduccion == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(ordenProduccion);
         }
 
-        // POST: OrdenProduccion/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: OrdenProduccion/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrNumeroOrden,StrReferencia,IntIdEstadoProduccion,IntIdRutaOrdenTrabajo,IntIdCentroTrabajo,DtFechaEstimada,DtFechaInicioEstimada,DtFechaFinalizacion,DecCantidadPlanificada,StrOrigenOrden,StrUsuario,DtFecha,IntIdListaMateriales,StrCodigoMaterial,IntIdUnidadMedida")] OrdenProduccion ordenProduccion) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(ordenProduccion);
         }
 
-        // GET: OrdenProduccion/Delete/5
+        /**
+         * GET: OrdenProduccion/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.OrdenProduccion == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(ordenProduccion);
         }
 
-        // POST: OrdenProduccion/Delete/5
+        /**
+         * POST: OrdenProduccion/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code OrdenProduccionExists}.
+         *
+         */
         private bool OrdenProduccionExists(string id) {
             return _context.OrdenProduccion.Any(e => e.StrNumeroOrden == id);
         }

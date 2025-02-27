@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class InterlocutoresCondicionPagoController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code InterlocutoresCondicionPagoController}.
+         *
+         */
         public InterlocutoresCondicionPagoController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: InterlocutoresCondicionPago
+        /**
+         * GET: InterlocutoresCondicionPago
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.InterlocutoresCondicionPago.ToListAsync());
         }
 
-        // GET: InterlocutoresCondicionPago/Details/5
+        /**
+         * GET: InterlocutoresCondicionPago/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.InterlocutoresCondicionPago == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(interlocutoresCondicionPago);
         }
 
-        // GET: InterlocutoresCondicionPago/Create
+        /**
+         * GET: InterlocutoresCondicionPago/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: InterlocutoresCondicionPago/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: InterlocutoresCondicionPago/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdInterlocutorCondicionPago,StrNombreCondicion,FltInteresMora,FltDescuentoTotal,DecCupoCredito,StrNumeroCuenta,StrSucursal,StrClaveControl,BitEntregaParcial,StrUsuario,DtFecha,IntIdCondicionPago,IntIdInterlocutor,IntIdListaPrecio")] InterlocutoresCondicionPago interlocutoresCondicionPago) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(interlocutoresCondicionPago);
         }
 
-        // GET: InterlocutoresCondicionPago/Edit/5
+        /**
+         * GET: InterlocutoresCondicionPago/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.InterlocutoresCondicionPago == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(interlocutoresCondicionPago);
         }
 
-        // POST: InterlocutoresCondicionPago/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: InterlocutoresCondicionPago/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdInterlocutorCondicionPago,StrNombreCondicion,FltInteresMora,FltDescuentoTotal,DecCupoCredito,StrNumeroCuenta,StrSucursal,StrClaveControl,BitEntregaParcial,StrUsuario,DtFecha,IntIdCondicionPago,IntIdInterlocutor,IntIdListaPrecio")] InterlocutoresCondicionPago interlocutoresCondicionPago) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(interlocutoresCondicionPago);
         }
 
-        // GET: InterlocutoresCondicionPago/Delete/5
+        /**
+         * GET: InterlocutoresCondicionPago/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.InterlocutoresCondicionPago == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(interlocutoresCondicionPago);
         }
 
-        // POST: InterlocutoresCondicionPago/Delete/5
+        /**
+         * POST: InterlocutoresCondicionPago/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code InterlocutoresCondicionPagoExists}.
+         *
+         */
         private bool InterlocutoresCondicionPagoExists(long? id) {
             return _context.InterlocutoresCondicionPago.Any(e => e.IntIdInterlocutorCondicionPago == id);
         }

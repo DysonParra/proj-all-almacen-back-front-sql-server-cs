@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class GrupoInterlocutoresController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code GrupoInterlocutoresController}.
+         *
+         */
         public GrupoInterlocutoresController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: GrupoInterlocutores
+        /**
+         * GET: GrupoInterlocutores
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.GrupoInterlocutores.ToListAsync());
         }
 
-        // GET: GrupoInterlocutores/Details/5
+        /**
+         * GET: GrupoInterlocutores/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.GrupoInterlocutores == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(grupoInterlocutores);
         }
 
-        // GET: GrupoInterlocutores/Create
+        /**
+         * GET: GrupoInterlocutores/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: GrupoInterlocutores/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: GrupoInterlocutores/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdGrupoInterlocutor,StrNombreGrupo,StrDescripcion,StrCuentaContable,StrUsuario,DtFecha,IntIdListaPrecio")] GrupoInterlocutores grupoInterlocutores) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(grupoInterlocutores);
         }
 
-        // GET: GrupoInterlocutores/Edit/5
+        /**
+         * GET: GrupoInterlocutores/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.GrupoInterlocutores == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(grupoInterlocutores);
         }
 
-        // POST: GrupoInterlocutores/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: GrupoInterlocutores/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdGrupoInterlocutor,StrNombreGrupo,StrDescripcion,StrCuentaContable,StrUsuario,DtFecha,IntIdListaPrecio")] GrupoInterlocutores grupoInterlocutores) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(grupoInterlocutores);
         }
 
-        // GET: GrupoInterlocutores/Delete/5
+        /**
+         * GET: GrupoInterlocutores/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.GrupoInterlocutores == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(grupoInterlocutores);
         }
 
-        // POST: GrupoInterlocutores/Delete/5
+        /**
+         * POST: GrupoInterlocutores/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code GrupoInterlocutoresExists}.
+         *
+         */
         private bool GrupoInterlocutoresExists(long? id) {
             return _context.GrupoInterlocutores.Any(e => e.IntIdGrupoInterlocutor == id);
         }

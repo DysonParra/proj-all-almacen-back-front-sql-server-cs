@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class UnidadMedidaController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code UnidadMedidaController}.
+         *
+         */
         public UnidadMedidaController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: UnidadMedida
+        /**
+         * GET: UnidadMedida
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.UnidadMedida.ToListAsync());
         }
 
-        // GET: UnidadMedida/Details/5
+        /**
+         * GET: UnidadMedida/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.UnidadMedida == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(unidadMedida);
         }
 
-        // GET: UnidadMedida/Create
+        /**
+         * GET: UnidadMedida/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: UnidadMedida/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: UnidadMedida/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdUnidadMedida,StrNombre,StrSimbolo,FltFactor,FltPrecision,FltConversion,IntDecimales,BitActivo,StrUsuario,DtFecha,IntIdTipoUnidadMedida")] UnidadMedida unidadMedida) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(unidadMedida);
         }
 
-        // GET: UnidadMedida/Edit/5
+        /**
+         * GET: UnidadMedida/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.UnidadMedida == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(unidadMedida);
         }
 
-        // POST: UnidadMedida/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: UnidadMedida/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdUnidadMedida,StrNombre,StrSimbolo,FltFactor,FltPrecision,FltConversion,IntDecimales,BitActivo,StrUsuario,DtFecha,IntIdTipoUnidadMedida")] UnidadMedida unidadMedida) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(unidadMedida);
         }
 
-        // GET: UnidadMedida/Delete/5
+        /**
+         * GET: UnidadMedida/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.UnidadMedida == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(unidadMedida);
         }
 
-        // POST: UnidadMedida/Delete/5
+        /**
+         * POST: UnidadMedida/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code UnidadMedidaExists}.
+         *
+         */
         private bool UnidadMedidaExists(long? id) {
             return _context.UnidadMedida.Any(e => e.IntIdUnidadMedida == id);
         }

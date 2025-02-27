@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class EstadosRemisionesController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code EstadosRemisionesController}.
+         *
+         */
         public EstadosRemisionesController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: EstadosRemisiones
+        /**
+         * GET: EstadosRemisiones
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.EstadosRemisiones.ToListAsync());
         }
 
-        // GET: EstadosRemisiones/Details/5
+        /**
+         * GET: EstadosRemisiones/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.EstadosRemisiones == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(estadosRemisiones);
         }
 
-        // GET: EstadosRemisiones/Create
+        /**
+         * GET: EstadosRemisiones/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: EstadosRemisiones/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: EstadosRemisiones/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdEstadoRemision,StrDescripcionEstadoRemision,StrUsuario,DtFecha")] EstadosRemisiones estadosRemisiones) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(estadosRemisiones);
         }
 
-        // GET: EstadosRemisiones/Edit/5
+        /**
+         * GET: EstadosRemisiones/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.EstadosRemisiones == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(estadosRemisiones);
         }
 
-        // POST: EstadosRemisiones/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: EstadosRemisiones/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdEstadoRemision,StrDescripcionEstadoRemision,StrUsuario,DtFecha")] EstadosRemisiones estadosRemisiones) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(estadosRemisiones);
         }
 
-        // GET: EstadosRemisiones/Delete/5
+        /**
+         * GET: EstadosRemisiones/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.EstadosRemisiones == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(estadosRemisiones);
         }
 
-        // POST: EstadosRemisiones/Delete/5
+        /**
+         * POST: EstadosRemisiones/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code EstadosRemisionesExists}.
+         *
+         */
         private bool EstadosRemisionesExists(long? id) {
             return _context.EstadosRemisiones.Any(e => e.IntIdEstadoRemision == id);
         }

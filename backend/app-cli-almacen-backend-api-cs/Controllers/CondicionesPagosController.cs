@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class CondicionesPagosController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code CondicionesPagosController}.
+         *
+         */
         public CondicionesPagosController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: CondicionesPagos
+        /**
+         * GET: CondicionesPagos
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.CondicionesPagos.ToListAsync());
         }
 
-        // GET: CondicionesPagos/Details/5
+        /**
+         * GET: CondicionesPagos/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.CondicionesPagos == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(condicionesPagos);
         }
 
-        // GET: CondicionesPagos/Create
+        /**
+         * GET: CondicionesPagos/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: CondicionesPagos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: CondicionesPagos/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdCondicionPago,StrNombreCondicion,StrDescripcion,BitDeudor,BitAcreedor,IntDiiaFijo,IntMesesAdicionales,IntDiasTolerancia,IntNumeroPlazos,FltDescuentoTotal,FltInteresCredito,DecHaberMaximo,StrUsuario,DtFecha")] CondicionesPagos condicionesPagos) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(condicionesPagos);
         }
 
-        // GET: CondicionesPagos/Edit/5
+        /**
+         * GET: CondicionesPagos/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.CondicionesPagos == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(condicionesPagos);
         }
 
-        // POST: CondicionesPagos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: CondicionesPagos/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdCondicionPago,StrNombreCondicion,StrDescripcion,BitDeudor,BitAcreedor,IntDiiaFijo,IntMesesAdicionales,IntDiasTolerancia,IntNumeroPlazos,FltDescuentoTotal,FltInteresCredito,DecHaberMaximo,StrUsuario,DtFecha")] CondicionesPagos condicionesPagos) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(condicionesPagos);
         }
 
-        // GET: CondicionesPagos/Delete/5
+        /**
+         * GET: CondicionesPagos/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.CondicionesPagos == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(condicionesPagos);
         }
 
-        // POST: CondicionesPagos/Delete/5
+        /**
+         * POST: CondicionesPagos/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code CondicionesPagosExists}.
+         *
+         */
         private bool CondicionesPagosExists(long? id) {
             return _context.CondicionesPagos.Any(e => e.IntIdCondicionPago == id);
         }

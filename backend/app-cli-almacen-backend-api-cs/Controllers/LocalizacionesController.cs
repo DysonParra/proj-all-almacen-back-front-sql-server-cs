@@ -33,16 +33,26 @@ namespace Almacen.Controllers {
     public class LocalizacionesController : Controller {
         private readonly AlmacenContext _context;
 
+        /**
+         * TODO: Description of method {@code LocalizacionesController}.
+         *
+         */
         public LocalizacionesController(AlmacenContext context) {
             _context = context;
         }
 
-        // GET: Localizaciones
+        /**
+         * GET: Localizaciones
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Localizaciones.ToListAsync());
         }
 
-        // GET: Localizaciones/Details/5
+        /**
+         * GET: Localizaciones/Details/5
+         *
+         */
         public async Task<IActionResult> Details(long? id) {
             if (id == null || _context.Localizaciones == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Almacen.Controllers {
             return View(localizaciones);
         }
 
-        // GET: Localizaciones/Create
+        /**
+         * GET: Localizaciones/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Localizaciones/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Localizaciones/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdLocalizacion,StrNombreLocalizacion,StrDireccion,StrCodigoPostal,StrPoBox,StrCiudad,StrPais,StrRegion,StrTelefono,StrCelular,StrFax,StrEmail,StrUsuario,DtFecha,IntIdInterlocutor,IntIdBodega")] Localizaciones localizaciones) {
@@ -76,7 +92,10 @@ namespace Almacen.Controllers {
             return View(localizaciones);
         }
 
-        // GET: Localizaciones/Edit/5
+        /**
+         * GET: Localizaciones/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(long? id) {
             if (id == null || _context.Localizaciones == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Almacen.Controllers {
             return View(localizaciones);
         }
 
-        // POST: Localizaciones/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Localizaciones/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("IntIdLocalizacion,StrNombreLocalizacion,StrDireccion,StrCodigoPostal,StrPoBox,StrCiudad,StrPais,StrRegion,StrTelefono,StrCelular,StrFax,StrEmail,StrUsuario,DtFecha,IntIdInterlocutor,IntIdBodega")] Localizaciones localizaciones) {
@@ -117,7 +139,10 @@ namespace Almacen.Controllers {
             return View(localizaciones);
         }
 
-        // GET: Localizaciones/Delete/5
+        /**
+         * GET: Localizaciones/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(long? id) {
             if (id == null || _context.Localizaciones == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Almacen.Controllers {
             return View(localizaciones);
         }
 
-        // POST: Localizaciones/Delete/5
+        /**
+         * POST: Localizaciones/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id) {
@@ -148,6 +176,10 @@ namespace Almacen.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code LocalizacionesExists}.
+         *
+         */
         private bool LocalizacionesExists(long? id) {
             return _context.Localizaciones.Any(e => e.IntIdLocalizacion == id);
         }
