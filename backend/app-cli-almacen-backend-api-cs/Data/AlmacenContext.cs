@@ -28,7 +28,12 @@ namespace Almacen.Data {
      * @since .NET 8 (LTS), C# 12
      */
     public class AlmacenContext : DbContext {
-        public AlmacenContext (DbContextOptions<AlmacenContext> options)
+
+        /**
+         * TODO: Description of method {@code AlmacenContext}.
+         *
+         */
+        public AlmacenContext(DbContextOptions<AlmacenContext> options) 
             : base(options) {
         }
 
