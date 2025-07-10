@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {MaterialesDatosCompra}
+ * @overview        {MaterialesDatosCompra}
  *
  * @version         2.0
  *

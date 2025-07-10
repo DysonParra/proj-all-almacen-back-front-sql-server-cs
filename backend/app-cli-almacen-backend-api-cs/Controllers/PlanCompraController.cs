@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {PlanCompraController}
+ * @overview        {PlanCompraController}
  *
  * @version         2.0
  *

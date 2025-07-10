@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {MmTmcdDescripcionesController}
+ * @overview        {MmTmcdDescripcionesController}
  *
  * @version         2.0
  *

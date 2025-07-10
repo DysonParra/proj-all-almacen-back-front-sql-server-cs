@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {GrupoInterlocutoresController}
+ * @overview        {GrupoInterlocutoresController}
  *
  * @version         2.0
  *

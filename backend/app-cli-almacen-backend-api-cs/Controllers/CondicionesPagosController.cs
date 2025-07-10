@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {CondicionesPagosController}
+ * @overview        {CondicionesPagosController}
  *
  * @version         2.0
  *

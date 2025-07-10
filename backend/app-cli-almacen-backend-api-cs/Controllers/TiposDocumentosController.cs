@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {TiposDocumentosController}
+ * @overview        {TiposDocumentosController}
  *
  * @version         2.0
  *

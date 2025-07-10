@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {CentrosTrabajos}
+ * @overview        {CentrosTrabajos}
  *
  * @version         2.0
  *

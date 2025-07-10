@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {CotizacionController}
+ * @overview        {CotizacionController}
  *
  * @version         2.0
  *

@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {TiposMovimientosController}
+ * @overview        {TiposMovimientosController}
  *
  * @version         2.0
  *

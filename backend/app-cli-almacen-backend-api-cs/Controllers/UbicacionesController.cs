@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {UbicacionesController}
+ * @overview        {UbicacionesController}
  *
  * @version         2.0
  *

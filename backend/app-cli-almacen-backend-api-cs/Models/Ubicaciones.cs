@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {Ubicaciones}
+ * @overview        {Ubicaciones}
  *
  * @version         2.0
  *

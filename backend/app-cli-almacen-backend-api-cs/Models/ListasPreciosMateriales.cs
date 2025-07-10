@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {ListasPreciosMateriales}
+ * @overview        {ListasPreciosMateriales}
  *
  * @version         2.0
  *

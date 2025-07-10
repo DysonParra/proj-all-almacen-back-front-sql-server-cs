@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {GrupoInterlocutores}
+ * @overview        {GrupoInterlocutores}
  *
  * @version         2.0
  *

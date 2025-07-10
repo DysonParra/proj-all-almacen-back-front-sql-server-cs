@@ -1,5 +1,5 @@
 /*
- * @fileoverview    {MmTmcCaracteristica}
+ * @overview        {MmTmcCaracteristica}
  *
  * @version         2.0
  *

@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {RemisionesComprasMaterialesController}
+ * @overview        {RemisionesComprasMaterialesController}
  *
  * @version         2.0
  *

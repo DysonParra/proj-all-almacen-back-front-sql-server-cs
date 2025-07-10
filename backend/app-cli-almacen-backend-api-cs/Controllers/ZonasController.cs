@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {ZonasController}
+ * @overview        {ZonasController}
  *
  * @version         2.0
  *
